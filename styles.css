@@ -302,7 +302,6 @@ img {
     }
 }
 
-
 .whatsapp-link {
     position: fixed;
     bottom: 20px;
@@ -314,18 +313,33 @@ img {
     align-items: center;
 }
 
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    50% { transform: translateX(3px); }
-    75% { transform: translateX(-3px); }
-    100% { transform: translateX(0); }
+/* Animação de Pulsação Elástica */
+@keyframes elastic-pulse {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.2); }
+    60% { transform: scale(0.9); }
+    100% { transform: scale(1); }
 }
 
+/* Animação de Vibração Mais Forte */
+@keyframes strong-vibrate {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(-6deg); }
+    30% { transform: rotate(6deg); }
+    45% { transform: rotate(-6deg); }
+    60% { transform: rotate(6deg); }
+    75% { transform: rotate(-6deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Combinação das animações */
 .whatsapp-link img {
     height: 90px;
-    animation: shake 1.5s infinite ease-in-out;
+    animation: 
+        elastic-pulse 2s infinite ease-in-out,
+        strong-vibrate 1.5s infinite ease-in-out;
 }
+
 
 .copy-button-wrapper {
     flex-basis: 100%;
