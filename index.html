@@ -309,33 +309,38 @@
             const input = document.getElementById("searchInput");
             const filter = input.value.toUpperCase(); // Busca em maiúsculas para comparação
             const missions = document.querySelectorAll(".mission");
-
+        
             for (const mission of missions) {
                 const text = mission.textContent || mission.innerText; // Texto completo do item
                 const trimmedText = text.toUpperCase().trim(); // Remove espaços extras para comparação precisa
-
-                // Comparação literal com espaços considerados
+        
                 if (trimmedText.includes(filter) || filter === "") {
                     mission.classList.remove("non-matching");
-
+        
                     // Restaurando as cores originais
                     const missionHeader = mission.querySelector(".mission-header");
                     if (missionHeader) {
                         missionHeader.style.backgroundColor = "";
                     }
                     mission.style.backgroundColor = "";
+        
+                    // 🔥 Restaurando as animações apenas se for uma correspondência
+                    mission.style.animation = "pulseBackground 3s infinite ease-in-out, glowingBorder 2s infinite ease-in-out";
                 } else {
                     mission.classList.add("non-matching");
-
+        
                     // Alterando as cores para cinza
                     const missionHeader = mission.querySelector(".mission-header");
                     if (missionHeader) {
                         missionHeader.style.backgroundColor = "rgba(220, 220, 220, 0.8)";
                     }
                     mission.style.backgroundColor = "rgba(220, 220, 220, 0.8)";
+        
+                    // ❌ Remove as animações dos não correspondentes
+                    mission.style.animation = "none";
                 }
             }
-        }
+        }        
 
         function copyMissions(missionGroup) {
             if (!missionGroup) {
