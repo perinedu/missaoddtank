@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDTank Brasil s12 - Missões Surpresas</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="titulo.jpg" type="image/jpeg">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6809594544652238"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header>
+        <img id="titleImage" src="titulo.jpg" alt="titulo">
+    </header>
+
+
+    <div class="search-container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar missão..." onkeyup="searchMission()">
+            <!-- Adicionado o evento onkeyup -->
+            <button id="searchButton" type="button" onclick="clearInput()">Limpar</button>
+            <!-- Adicionado type="button" -->
+        </div>
+    </div>
+    <div class="mission-group">
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                <span class="new-badge">NEW</span>
+                      F. de Semana A (14/03)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/25) Ir PvP -</strong> Ir 25 PvP's</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) TPN -</strong> Tribo Piatan Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) PD -</strong> Galinheiro Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/15) Matar GvG -</strong> Matar 15 no GvG </p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                <span class="new-badge">NEW</span>
+                      F. de Semana B (14/03)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/30) Ir GvG (Equilibrado) -</strong> Ir 30 GvG's Equilibrados</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) OBN -</strong> Olimpíadas Boom Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) OBD -</strong> Olimpíadas Boom Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/10000) Pontos Torneio -</strong> Atingir 10k Pontos no Torneio Semanal</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                <span class="new-badge">NEW</span>
+                      F. de Semana C (14/03)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/5) CSN -</strong> Castelo Sombrio Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) CSD -</strong> Castelo Sombrio Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) FN -</strong> Formigueiro Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/25) Ganhar PvP (Equilibrado) -</strong> Ganhar 30 PvP's Equilibrados</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                <span class="new-badge">NEW</span>
+                      F. de Semana D (14/03)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/5) BD -</strong> Bugou Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) BF -</strong> Bugou Fácil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/10) 1 de vida -</strong> Ganhar a partida com 1 de vida.</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/60) SPA -</strong> 60 minutos no SPA</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+    </div>
+    <div class="mission-group">
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                Quintou (12/03)
+            </div>
+
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/5) CSN -</strong> Castelo Sombrio Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) CSD -</strong> Castelo Sombrio Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) CDN -</strong> Covíl Dragão Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) CDD -</strong> Covíl Dragão Difícil</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+    </div>
+    <div class="mission-group">
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                Colorida I (28/02)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/25) Ir GvG -</strong> Ir 25 GvG's</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) PD -</strong> Galinheiro Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) BD -</strong> Bugou Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/35) Matar GvG -</strong> Matar 35 no GvG <strong>(Conta 2)</strong></p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                Colorida II (28/02)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/25) Combate Casal -</strong> Ir 25 Combates em Casal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/10) BN -</strong> Bugou Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) TPD -</strong> Tribo Piatan Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/4000) Contribuir 4000</strong> 4000 de contribuição para sociedade. </p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                Colorida III (28/02)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/5) Ir PVP Equilibrado</strong> Ir 5 PvP's Equilibrados </p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) PF -</strong> Galinheiro Fácil</p>
+                    </li>
+                    </li>
+                    <li>
+                        <p><strong>(0/25) Matar GvG Equilibrado -</strong> Matar 25 no GvG Equilibrado <strong>(Conta
+                                2)</strong></p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+    </div>
+    <div class="mission-group">
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                Colorida IV (28/02)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/5) CDD -</strong> Covíl Dragão Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) CDN -</strong> Covíl Dragão Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) TPN -</strong> Tribo Piatan Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) OBD -</strong> Olimpíadas Boom Difícil</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                Colorida V (28/02)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/5) OBN -</strong> Olimpíadas Boom Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) BF -</strong> Bugou Fácil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/25) Matar PvP Equilibrado -</strong> Matar 25 no PvP Equilibrado <strong>(Conta
+                                2)</strong></p>
+                    </li>
+                    <li>
+                        <p><strong>(0/25) Ganhar GvG -</strong> Ganhar 25 GvG's</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                     Sexta Básica (27/02)
+            </div>
+
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/3) CSN -</strong> Castelo Sombrio Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/20) Ganhar GVG -</strong> Ganhar 20 GvG's </p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) PN -</strong> Galinheiro Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/15) Matar PVP -</strong> Matar 15 no PVP</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+    </div>
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+    </section>
+
+    <script src="script.js"></script>
+
+    <script>
+        function clearInput() {
+            document.getElementById("searchInput").value = "";
+            searchMission(); // Chame searchMission após limpar o input
+        }
+
+        function toggleMission(missionElement) {
+            const content = missionElement.querySelector('.mission-content');
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function searchMission() {
+            const input = document.getElementById("searchInput");
+            const filter = input.value.toUpperCase(); // Busca em maiúsculas para comparação
+            const missions = document.querySelectorAll(".mission");
+
+            for (const mission of missions) {
+                const text = mission.textContent || mission.innerText; // Texto completo do item
+                const trimmedText = text.toUpperCase().trim(); // Remove espaços extras para comparação precisa
+
+                // Comparação literal com espaços considerados
+                if (trimmedText.includes(filter) || filter === "") {
+                    mission.classList.remove("non-matching");
+
+                    // Restaurando as cores originais
+                    const missionHeader = mission.querySelector(".mission-header");
+                    if (missionHeader) {
+                        missionHeader.style.backgroundColor = "";
+                    }
+                    mission.style.backgroundColor = "";
+                } else {
+                    mission.classList.add("non-matching");
+
+                    // Alterando as cores para cinza
+                    const missionHeader = mission.querySelector(".mission-header");
+                    if (missionHeader) {
+                        missionHeader.style.backgroundColor = "rgba(220, 220, 220, 0.8)";
+                    }
+                    mission.style.backgroundColor = "rgba(220, 220, 220, 0.8)";
+                }
+            }
+        }
+
+        function copyMissions(missionGroup) {
+            if (!missionGroup) {
+                console.error("Nenhum grupo de missões foi passado para a função.");
+                return;
+            }
+
+            let textToCopy = '';
+
+            // Para cada missão dentro do grupo
+            let missions = missionGroup.querySelectorAll('.mission');
+            if (!missions.length) {
+                console.error("Nenhuma missão encontrada no grupo.");
+                return;
+            }
+
+            missions.forEach((mission, index) => {
+                console.log(`Processando missão ${index + 1}`);
+
+                // Adiciona o título da missão (por exemplo, "Missão 1")
+                textToCopy += mission.querySelector('.mission-header').textContent.trim() + '\n';
+
+                // Para cada detalhe da missão
+                let details = mission.querySelectorAll('.mission-content li p');
+                if (!details.length) {
+                    console.error(`Nenhum detalhe encontrado para a missão ${index + 1}`);
+                    return;
+                }
+
+                details.forEach((detail) => {
+                    let cleanDetail = detail.textContent.trim();
+                    cleanDetail = cleanDetail.replace(/(\s*\n\s*)+/g, ' ');
+                    textToCopy += '- ' + cleanDetail + '\n';
+                });
+
+                textToCopy += '\n'; // Adiciona uma linha em branco entre as missões
+            });
+
+            // Copia o texto para a área de transferência
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            alert("Missões copiadas para a área de transferência!");
+            console.log("Missões copiadas para a área de transferência!")
+        }
+
+        function countVisitsInConsole() {
+            const visitCount = localStorage.getItem('visitCountConsole'); // Obtém o contador do LocalStorage
+            const newCount = visitCount ? parseInt(visitCount, 10) + 1 : 1; // Incrementa o contador ou inicia com 1
+            localStorage.setItem('visitCountConsole', newCount); // Atualiza o contador no LocalStorage
+
+            console.log(`Visitas nesta página: ${newCount}`); // Exibe no console
+        }
+
+        // Executa a contagem ao carregar a página
+        countVisitsInConsole();
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const textElement = document.querySelector(".destaque-branco p");
+
+            // Opções de direções possíveis
+            const animations = [
+                "lightPassHorizontal",
+                "lightPassVertical",
+                "lightPassDiagonal",
+                "lightPassCircular"
+            ];
+
+            // Escolhe uma direção aleatória
+            const randomDirection = animations[Math.floor(Math.random() * animations.length)];
+
+            // Aplica a animação com direção aleatória
+            textElement.style.animation = `${randomDirection} 1s infinite linear`;
+        });
+
+    </script>
+    <!-- <a href="https://chat.whatsapp.com/BfOpJjgde1ODJmm0Z92Ano" target="_blank" class="whatsapp-link">
+        <img src="whatsapp2.jpg" alt="WhatsApp" />
+    </a> -->
+
+</body>
+
+</html>
+
+<div class="whatsapp-spacer"></div>
