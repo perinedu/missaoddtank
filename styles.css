@@ -169,12 +169,12 @@ article p {
     background-color: rgba(255, 64, 64, 0.92); /* Vermelho com 80% de opacidade */
 }
 
-.mission-group:nth-of-type(4) .mission .mission-header {
+.mission-group:nth-of-type(5) .mission .mission-header {
     background-color: #FFA500;
 }
 
-.mission-group:nth-of-type(4) .mission {
-    background-color: rgb(225, 177, 86, 0.95);
+.mission-group:nth-of-type(5) .mission {
+    background-color: rgba(239, 255, 18, 0.92);
 }
 
 
@@ -406,4 +406,3 @@ body {
         margin-left: auto; /* Empurra o título para a direita */
     }
 }
-
