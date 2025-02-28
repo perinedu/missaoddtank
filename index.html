@@ -30,7 +30,35 @@
     <div class="mission-group">
         <div class="mission">
             <div class="mission-header" onclick="toggleMission(this.parentElement)">
-                      F. de Semana A (14/03)
+                <span class="new-badge">NEW</span>
+                    Sexta Básica (07/03)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/?) Sem Informações até o momento </strong></p>
+                    </li>
+                    <li>
+                        <p><strong>(0/?) Sem Informações até o momento </strong></p>
+                    </li>
+                    <li>
+                        <p><strong>(0/?) Sem Informações até o momento </strong></p>
+                    </li>
+                    <li>
+                        <p><strong>(0/?) Sem Informações até o momento </strong></p>
+                    </li>
+                    <li>
+                        <p><strong><span style="color: white;">(0/?) Caso saiba alguma que não está presente, compartilhe conosco no grupo do WhatsApp</span></strong></p>
+                    </li>                    
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+    </div>
+    <div class="mission-group">
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                F. de Semana A (14/03)
             </div>
             <div class="mission-content">
                 <ul>
@@ -52,7 +80,7 @@
         </div>
         <div class="mission">
             <div class="mission-header" onclick="toggleMission(this.parentElement)">
-                      F. de Semana B (14/03)
+                F. de Semana B (14/03)
             </div>
             <div class="mission-content">
                 <ul>
@@ -74,7 +102,7 @@
         </div>
         <div class="mission">
             <div class="mission-header" onclick="toggleMission(this.parentElement)">
-                      F. de Semana C (14/03)
+                F. de Semana C (14/03)
             </div>
             <div class="mission-content">
                 <ul>
@@ -96,7 +124,7 @@
         </div>
         <div class="mission">
             <div class="mission-header" onclick="toggleMission(this.parentElement)">
-                      F. de Semana D (14/03)
+                F. de Semana D (14/03)
             </div>
             <div class="mission-content">
                 <ul>
@@ -185,6 +213,8 @@
             </div>
             <!-- FIM MODELO MISSÃO -->
         </div>
+    </div>
+    <div class="mission-group">
         <div class="mission">
             <div class="mission-header" onclick="toggleMission(this.parentElement)">
                 Colorida III (28/02)
@@ -206,8 +236,6 @@
             </div>
             <!-- FIM MODELO MISSÃO -->
         </div>
-    </div>
-    <div class="mission-group">
         <div class="mission">
             <div class="mission-header" onclick="toggleMission(this.parentElement)">
                 Colorida IV (28/02)
@@ -253,29 +281,6 @@
             </div>
             <!-- FIM MODELO MISSÃO -->
         </div>
-        <div class="mission">
-            <div class="mission-header" onclick="toggleMission(this.parentElement)">
-                     Sexta Básica (27/02)
-            </div>
-
-            <div class="mission-content">
-                <ul>
-                    <li>
-                        <p><strong>(0/3) CSN -</strong> Castelo Sombrio Normal</p>
-                    </li>
-                    <li>
-                        <p><strong>(0/20) Ganhar GVG -</strong> Ganhar 20 GvG's </p>
-                    </li>
-                    <li>
-                        <p><strong>(0/5) PN -</strong> Galinheiro Normal</p>
-                    </li>
-                    <li>
-                        <p><strong>(0/15) Matar PVP -</strong> Matar 15 no PVP</p>
-                    </li>
-                </ul>
-            </div>
-            <!-- FIM MODELO MISSÃO -->
-        </div>
     </div>
     <!-- ---------------------------------------------------------------------------------------------------- -->
     <!-- ---------------------------------------------------------------------------------------------------- -->
@@ -305,38 +310,38 @@
             const input = document.getElementById("searchInput");
             const filter = input.value.toUpperCase(); // Busca em maiúsculas para comparação
             const missions = document.querySelectorAll(".mission");
-        
+
             for (const mission of missions) {
                 const text = mission.textContent || mission.innerText; // Texto completo do item
                 const trimmedText = text.toUpperCase().trim(); // Remove espaços extras para comparação precisa
-        
+
                 if (trimmedText.includes(filter) || filter === "") {
                     mission.classList.remove("non-matching");
-        
+
                     // Restaurando as cores originais
                     const missionHeader = mission.querySelector(".mission-header");
                     if (missionHeader) {
                         missionHeader.style.backgroundColor = "";
                     }
                     mission.style.backgroundColor = "";
-        
+
                     // 🔥 Restaurando as animações apenas se for uma correspondência
                     mission.style.animation = "pulseBackground 3s infinite ease-in-out, glowingBorder 2s infinite ease-in-out";
                 } else {
                     mission.classList.add("non-matching");
-        
+
                     // Alterando as cores para cinza
                     const missionHeader = mission.querySelector(".mission-header");
                     if (missionHeader) {
                         missionHeader.style.backgroundColor = "rgba(220, 220, 220, 0.8)";
                     }
                     mission.style.backgroundColor = "rgba(220, 220, 220, 0.8)";
-        
+
                     // ❌ Remove as animações dos não correspondentes
                     mission.style.animation = "none";
                 }
             }
-        }        
+        }
 
         function copyMissions(missionGroup) {
             if (!missionGroup) {
