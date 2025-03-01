@@ -43,7 +43,7 @@ header img {
     
     color: white;
     font-weight: 900; /* Ajuste para fonte extra negrito */
-    font-size: 12px;
+    font-size: 10px;
     font-family: Arial, sans-serif; /* Garante que seja uma fonte que suporta negrito */
     letter-spacing: 1px; /* Melhora a legibilidade */
     padding: 4px 8px;
@@ -127,7 +127,7 @@ article p {
 }
 
 .mission-header {
-    font-size: 120%;
+    font-size: 115%;
     /* Aumentar a fonte em 15% */
     padding: 10px;
     background: #003f69;
