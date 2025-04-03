@@ -161,37 +161,40 @@ article p {
     border-bottom: 1px dashed black;
 }
 
-.mission-group:nth-of-type(2) .mission .mission-header {
+.mission-group:nth-of-type(5) .mission .mission-header {
     background-color: #8f000c; /* Vermelho */
 }
 
-.mission-group:nth-of-type(2) .mission {
+.mission-group:nth-of-type(5) .mission {
     background-color: rgba(255, 64, 64, 0.92); /* Vermelho com 80% de opacidade */
 }
 
-.mission-group:nth-of-type(5) .mission .mission-header {
+.mission-group:nth-of-type(3) .mission .mission-header {
     background-color: #FFA500;
 }
 
-.mission-group:nth-of-type(5) .mission {
-    background-color: rgba(239, 255, 18, 0.92);
-}
-
-
-.mission-group:nth-of-type(4) .mission .mission-header {
+.mission-group:nth-of-type(2) .mission .mission-header {
     background-color: #007824; /* Vermelho */
 }
 
-.mission-group:nth-of-type(4) .mission {
+.mission-group:nth-of-type(2) .mission {
+    background-color: rgba(14, 247, 53, 0.92); /* Vermelho com 80% de opacidade */
+}
+
+.mission-group:nth-of-type(3) .mission .mission-header {
+    background-color: #007824; /* Vermelho */
+}
+
+.mission-group:nth-of-type(3) .mission {
     background-color: rgba(14, 247, 53, 0.92); /* Vermelho com 80% de opacidade */
 }
 
 
-.mission-group:nth-of-type(3) .mission .mission-header {
+.mission-group:nth-of-type(4) .mission .mission-header {
     background-color: #001690;
 }
 
-.mission-group:nth-of-type(3) .mission {
+.mission-group:nth-of-type(4) .mission {
     background-color: rgba(0, 103, 172, 0.92); /* Azul com 80% de opacidade */
 }
 
