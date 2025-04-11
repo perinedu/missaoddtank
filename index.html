@@ -29,6 +29,17 @@
     </div>
     <div class="mission-group">
         <div class="mission">
+            <div class="mission-header">
+                <span class="new-badge">NEW</span>
+                    <a href="#" onclick="confirmarAcessoYoutube(event)" style="color: inherit; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 6px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 24 17" fill="red" style="vertical-align: middle;">
+                        <path d="M23.498 2.258a2.998 2.998 0 0 0-2.113-2.117C19.321 0 12 0 12 0S4.679 0 2.615.141A2.998 2.998 0 0 0 .502 2.258C.36 4.322.36 8.5.36 8.5s0 4.178.142 6.242a2.998 2.998 0 0 0 2.113 2.117c2.064.141 9.385.141 9.385.141s7.321 0 9.385-.141a2.998 2.998 0 0 0 2.113-2.117c.142-2.064.142-6.242.142-6.242s0-4.178-.142-6.242zM9.545 12.273V4.727L15.818 8.5l-6.273 3.773z"/>
+                    </svg>
+                    Manutenção 11/04
+                </a>
+            </div>
+        </div>
+        <div class="mission">
             <div class="mission-header" onclick="toggleMission(this.parentElement)">
                 <span class="new-badge">NEW</span>
                     Pré Páscoa 🐰 (26/04)
@@ -356,6 +367,15 @@
             // Aplica a animação com direção aleatória
             textElement.style.animation = `${randomDirection} 1s infinite linear`;
         });
+    
+        function confirmarAcessoYoutube(event) {
+            event.preventDefault(); // impede o link de abrir automaticamente
+            const confirmar = confirm("Deseja abrir o vídeo sobre a manutenção em uma nova aba?");
+            if (confirmar) {
+                window.open("https://www.youtube.com/watch?v=yTATPb8sJLo", "_blank");
+            }
+        }
+
 
     </script>
     <a href="https://chat.whatsapp.com/FRGLypdyEjGCUjcxaK7LwM" target="_blank" class="whatsapp-link">
