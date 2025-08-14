@@ -161,55 +161,72 @@ article p {
     border-bottom: 1px dashed black;
 }
 
-.mission-group:nth-of-type(3) .mission .mission-header {
-    background-color: #8f000c; /* Vermelho */
-}
 
-.mission-group:nth-of-type(3) .mission {
-    background-color: rgba(255, 64, 64, 0.92); /* Vermelho com 80% de opacidade */
-}
-
-.mission-group:nth-of-type(2) .mission .mission-header {
-    background-color: #8f000c; /* Vermelho */
-}
-
-.mission-group:nth-of-type(2) .mission {
-    background-color: rgba(255, 64, 64, 0.92); /* Vermelho com 80% de opacidade */
-}
-
-.mission-group:nth-of-type(6) .mission .mission-header {
+.mission-group:nth-of-type(9) .mission .mission-header {
     background-color: #ffa600;
 }
 
-.mission-group:nth-of-type(6) .mission {
+.mission-group:nth-of-type(9) .mission {
     background-color: rgba(255, 210, 86, 0.92); /* Vermelho com 80% de opacidade */
 }
 
-.mission-group:nth-of-type(5) .mission .mission-header {
+.mission-group:nth-of-type(7) .mission .mission-header {
     background-color: #8800b6;
 }
 
-.mission-group:nth-of-type(5) .mission {
+.mission-group:nth-of-type(6) .mission {
     background-color: rgba(197, 101, 214, 0.92); /* Vermelho com 80% de opacidade */
 }
 
-.mission-group:nth-of-type(3) .mission .mission-header {
+.mission-group:nth-of-type(8) .mission .mission-header {
     background-color: #007824; /* Vermelho */
 }
 
-.mission-group:nth-of-type(3) .mission {
+.mission-group:nth-of-type(8) .mission {
     background-color: rgba(14, 247, 53, 0.92); /* Vermelho com 80% de opacidade */
 }
 
-.mission-group:nth-of-type(4) .mission .mission-header {
-    background-color: #001690;
+.mission-group:nth-of-type(10) .mission .mission-header {
+    background-color: #8f0000;
 }
 
-.mission-group:nth-of-type(4) .mission {
-    background-color: rgba(0, 103, 172, 0.92); /* Azul com 80% de opacidade */
+.mission-group:nth-of-type(10) .mission {
+    background-color: #ff2727;
 }
 
+.mission-group:nth-of-type(10) .mission .mission-header {
+    background-color: #8f0000;
+}
 
+.mission-group:nth-of-type(10) .mission {
+    background-color: #ff2727;
+}
+
+.mission-group:nth-of-type(3) .mission .mission-header,
+.mission-group:nth-of-type(4) .mission .mission-header,
+.mission-group:nth-of-type(5) .mission .mission-header,
+.mission-group:nth-of-type(6) .mission .mission-header {
+    background-color: #180dad; /* Azul escuro elegante */
+    color: #ffffff;
+}
+
+.mission-group:nth-of-type(3) .mission,
+.mission-group:nth-of-type(4) .mission,
+.mission-group:nth-of-type(5) .mission,
+.mission-group:nth-of-type(6) .mission {
+    background-color: #3a33c4; /* Azul intermediário suave */
+    color: #ffffff;
+}
+
+/* Acessibilidade: reduz movimento se preferido pelo usuário */
+@media (prefers-reduced-motion: reduce) {
+  .mission-group:nth-of-type(7) .mission,
+  .mission-group:nth-of-type(7) .mission::before,
+  .mission-group:nth-of-type(7) .mission .mission-header::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 
 
 @keyframes pulseBackground {
@@ -222,6 +239,31 @@ article p {
     0% { box-shadow: 0 0 6px rgba(255, 255, 0, 0.5); }
     50% { box-shadow: 0 0 15px rgba(255, 255, 0, 1); }
     100% { box-shadow: 0 0 6px rgba(255, 255, 0, 0.5); }
+}
+
+.mission-group:nth-of-type(2) .mission .mission-header {
+    background-color: #ff0000; /* Laranja vibrante */
+    color: #ffffff;
+    animation: pulseBackground 2s infinite;
+}
+
+.mission-group:nth-of-type(2) .mission {
+    background-color: #f84343; /* Laranja mais claro */
+
+    animation: glowingBorder 2s infinite;
+}
+
+/* Efeito de brilho suave */
+@keyframes pulseBackground {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+    100% { filter: brightness(1); }
+}
+
+@keyframes glowingBorder {
+    0% { box-shadow: 0 0 5px rgba(255, 102, 0, 0.6); }
+    50% { box-shadow: 0 0 15px rgba(255, 102, 0, 1); }
+    100% { box-shadow: 0 0 5px rgba(255, 102, 0, 0.6); }
 }
 
 .mission-group .mission {
@@ -423,3 +465,4 @@ body {
         margin-left: auto; /* Empurra o título para a direita */
     }
 }
+
