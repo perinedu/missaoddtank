@@ -27,31 +27,23 @@ header img {
     100% { background-position: 0% 50%; }
 }
 
-.new-badge {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    background: linear-gradient(45deg, 
-        #ff0 0%,      /* Amarelo fogo */
-        #ff8000 30%,  /* Laranja quente */
-        #ff4000 60%,  /* Vermelho fogo */
-        #ff8000 90%,  /* Laranja quente */
-        #ff0 100%     /* Amarelo fogo */
-    );
-    background-size: 200% 200%;
-    animation: fireEffect 2s linear infinite; /* Animação de fogo */
-    
-    color: white;
-    font-weight: 900; /* Ajuste para fonte extra negrito */
-    font-size: 10px;
-    font-family: Arial, sans-serif; /* Garante que seja uma fonte que suporta negrito */
-    letter-spacing: 1px; /* Melhora a legibilidade */
-    padding: 4px 8px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 4px rgba(255, 50, 0, 1), 
-                 0px 0px 6px rgba(255, 100, 0, 0.8); /* Brilho de fogo no texto */
-    box-shadow: 0px 0px 8px rgba(255, 100, 0, 1); /* Sombra brilhante ao redor */
+.new-badge{
+    position:absolute;
+    top:-5px;
+    left:15px;
+    width:50px;
+    height:50px;              /* OU: aspect-ratio: 1 / 1; height:60px; */
+    background:url('novo.png') no-repeat center/contain;
+    z-index:5;
+    animation:pulseBadge 7s infinite ease-in-out;
+    will-change: transform;
+}
+
+/* Efeito de pulsar */
+@keyframes pulseBadge{
+    0%{ transform:scale(1); }
+    50%{ transform:scale(1.1); }
+    100%{ transform:scale(1); }
 }
 
 .mission-header {
