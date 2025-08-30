@@ -154,11 +154,11 @@ article p {
 }
 
 
-.mission-group:nth-of-type(9) .mission .mission-header {
+.mission-group:nth-of-type(2) .mission .mission-header {
     background-color: #ffa600;
 }
 
-.mission-group:nth-of-type(9) .mission {
+.mission-group:nth-of-type(2) .mission {
     background-color: rgba(255, 210, 86, 0.92); /* Vermelho com 80% de opacidade */
 }
 
@@ -170,42 +170,50 @@ article p {
     background-color: rgba(197, 101, 214, 0.92); /* Vermelho com 80% de opacidade */
 }
 
-.mission-group:nth-of-type(7) .mission .mission-header {
+.mission-group:nth-of-type(2) .mission .mission-header {
     background-color: #007824; /* Vermelho */
 }
 
-.mission-group:nth-of-type(7) .mission {
+.mission-group:nth-of-type(2) .mission {
     background-color: rgba(14, 247, 53, 0.92); /* Vermelho com 80% de opacidade */
 }
 
-.mission-group:nth-of-type(10) .mission .mission-header {
+.mission-group:nth-of-type(3) .mission .mission-header {
+    background-color: #007824; /* Vermelho */
+}
+
+.mission-group:nth-of-type(3) .mission {
+    background-color: rgba(14, 247, 53, 0.92); /* Vermelho com 80% de opacidade */
+}
+
+.mission-group:nth-of-type(12) .mission .mission-header {
     background-color: #8f0000;
 }
 
-.mission-group:nth-of-type(10) .mission {
+.mission-group:nth-of-type(12) .mission {
     background-color: #ff2727;
 }
 
-.mission-group:nth-of-type(10) .mission .mission-header {
+.mission-group:nth-of-type(12) .mission .mission-header {
     background-color: #8f0000;
 }
 
-.mission-group:nth-of-type(10) .mission {
+.mission-group:nth-of-type(12) .mission {
     background-color: #ff2727;
 }
 
-.mission-group:nth-of-type(2) .mission .mission-header,
-.mission-group:nth-of-type(3) .mission .mission-header,
 .mission-group:nth-of-type(4) .mission .mission-header,
-.mission-group:nth-of-type(5) .mission .mission-header {
+.mission-group:nth-of-type(5) .mission .mission-header,
+.mission-group:nth-of-type(6) .mission .mission-header,
+.mission-group:nth-of-type(7) .mission .mission-header {
     background-color: #180dad; /* Azul escuro elegante */
     color: #ffffff;
 }
 
-.mission-group:nth-of-type(2) .mission,
-.mission-group:nth-of-type(3) .mission,
 .mission-group:nth-of-type(4) .mission,
-.mission-group:nth-of-type(5) .mission{
+.mission-group:nth-of-type(5) .mission,
+.mission-group:nth-of-type(6) .mission,
+.mission-group:nth-of-type(7) .mission{
     background-color: #3a33c4; /* Azul intermediário suave */
     color: #ffffff;
 }
