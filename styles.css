@@ -12,7 +12,7 @@ body {
 }
 
 header img {
-    transition: transform 0.3s ease;
+    transition: transform 1.3s ease;
     /* Garante uma transição suave */
 }
 @keyframes fireEffect {
@@ -57,6 +57,11 @@ header img:hover {
     /* Aumenta a imagem em 10% */
 }
 
+header{
+  display:flex;
+  justify-content:center; /* centraliza horizontalmente */
+  align-items:center;     /* opcional: centraliza verticalmente */
+}
 .destaque-branco p {
     color: white;
     font-weight: bold;
@@ -67,18 +72,61 @@ header img:hover {
 }
 
 
-#titleImage {
-    width: 150px; /* Define um tamanho fixo para a largura */
-    height: auto; /* Mantém a proporção da imagem */
-    display: block; /* Garante que a imagem seja exibida como um bloco */
-    margin: 0 auto; /* Centraliza a imagem horizontalmente */
-    transition: transform 0.3s ease; /* Suaviza a transição de transformações */
+/* Camada X: deriva lenta para os lados */
+.float-x{
+  display:inline-block;
+  animation: driftX 9.5s ease-in-out infinite alternate;
+  animation-delay: -2.1s;          /* dessincroniza p/ parecer natural */
+  will-change: transform;
 }
 
-#titleImage:hover {
-    transform: scale(1.1); /* Aumenta a imagem em 10% ao passar o mouse */
+/* Camada Y: sobe/desce em outro ritmo */
+.float-y{
+  display:inline-block;
+  animation: driftY 11.2s ease-in-out infinite alternate;
+  animation-delay: -3.4s;
+  will-change: transform;
 }
 
+/* Imagem: leve rotação contínua (vai e volta) */
+#titleImage{
+  width:150px; height:auto; display:block; margin:0 auto;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  filter: drop-shadow(0 0 10px rgba(0,153,255,.6));
+  animation: rollZ 13.6s ease-in-out infinite alternate;
+  animation-delay: -1.7s;
+  will-change: transform, filter;
+}
+
+/* Hover: zoom + brilho, sem “quebrar” o balanço */
+#titleImage:hover{
+  transform: scale(1.5);
+  filter: brightness(1.5) drop-shadow(0 0 16px rgba(0,153,255,.85));
+}
+
+/* Keyframes suaves (sem pontos “travados”) */
+@keyframes driftX{
+  0%   { transform: translateX(0) }
+  50%  { transform: translateX(8px) }
+  100% { transform: translateX(-7px) }
+}
+
+@keyframes driftY{
+  0%   { transform: translateY(0) }
+  50%  { transform: translateY(-9px) }
+  100% { transform: translateY(6px) }
+}
+
+@keyframes rollZ{
+  0%   { transform: rotate(0deg) }
+  50%  { transform: rotate(2.2deg) }
+  100% { transform: rotate(-2.6deg) }
+}
+
+/* Acessibilidade: reduz movimento */
+@media (prefers-reduced-motion: reduce){
+  .float-x, .float-y, #titleImage{ animation: none !important; }
+}
 
 article {
     background-color: #fff;
@@ -207,8 +255,7 @@ article p {
 .mission-group:nth-of-type(7) .mission .mission-header,
 .mission-group:nth-of-type(8) .mission .mission-header,
 .mission-group:nth-of-type(9) .mission .mission-header {
-    background-color: #180dad; /* Azul escuro elegante */
-    color: #ffffff;
+    background-color: #ffa600;
 }
 
 .mission-group:nth-of-type(5) .mission,
@@ -216,8 +263,7 @@ article p {
 .mission-group:nth-of-type(7) .mission,
 .mission-group:nth-of-type(8) .mission,
 .mission-group:nth-of-type(9) .mission{
-    background-color: #3a33c4; /* Azul intermediário suave */
-    color: #ffffff;
+    background-color: rgba(255, 210, 86, 0.98); /* Vermelho com 80% de opacidade */
 }
 
 /* Acessibilidade: reduz movimento se preferido pelo usuário */
