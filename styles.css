@@ -496,3 +496,38 @@ body {
     }
 }
 
+/* Mostra o texto sutil no topo da descrição QUANDO ABERTO */
+.mission-content{ position: relative; }
+
+/* Texto igual ao anterior, só que ancorado na área da descrição */
+.mission-content::before{
+  content: "missaoddtank.com";
+  position: absolute;
+  left: 12px; right: 12px; top: 2;     /* topo da descrição */
+  text-align: right;
+  font: 700 10px/1 Arial, sans-serif;
+  color: #000; 
+  opacity: .99;
+  pointer-events: none;
+  margin-top: -5px;
+}
+
+/* Reserva espaço para não sobrepor a primeira linha da missão */
+.mission:has(.mission-content[style*="display: block"]) .mission-content{
+  padding-top: 22px !important;
+}
+
+/* 🔒 Congela animações/transformações apenas quando ABERTO */
+.mission:has(.mission-content[style*="display: block"]){
+  animation:none !important;
+  transform:none !important;
+  filter:none !important;
+}
+.mission:has(.mission-content[style*="display: block"]) *{
+  animation:none !important;   /* bloqueia “respiração” herdada */
+}
+.mission:has(.mission-content[style*="display: block"]):hover{
+  transform:none !important;
+  filter:none !important;
+  box-shadow:0 2px 4px rgba(0,0,0,.12); /* opcional, estável */
+}
