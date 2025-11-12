@@ -235,6 +235,14 @@ article p {
     background-color: #ff2727;
 }
 
+.mission-group:nth-of-type(3) .mission .mission-header {
+    background-color: #007824; /* Vermelho */
+}
+
+.mission-group:nth-of-type(3) .mission {
+    background-color: rgba(14, 247, 53, 0.92); /* Vermelho com 80% de opacidade */
+}
+
 .mission-group:nth-of-type(2) .mission .mission-header {
     background-color: #8f0000;
 }
