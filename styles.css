@@ -525,3 +525,20 @@ body {
   filter:none !important;
   box-shadow:0 2px 4px rgba(0,0,0,.12); /* opcional, estável */
 }
+
+.clickfx {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  z-index: 999999;
+  will-change: transform;
+  transform: translate(-9999px, -9999px) rotate(0deg);
+  filter: drop-shadow(0 0 10px rgba(255, 210, 120, .75));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clickfx { display: none !important; }
+}
