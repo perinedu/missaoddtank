@@ -542,3 +542,24 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .clickfx { display: none !important; }
 }
+
+.clickfx-impact{
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  z-index: 1000000;
+  margin-top: -30px;
+  margin-left: -20px;
+}
+.clickfx-impact.is-on {
+  opacity: 1;
+  transform: translate(var(--x), var(--y)) scale(1.05);
+  transition: transform 180ms ease-out, opacity 180ms ease-out;
+}
+
+.clickfx-impact.is-off {
+  opacity: 0;
+  transform: translate(var(--x), var(--y)) scale(1.25);
+  transition: transform 220ms ease-in, opacity 220ms ease-in;
+}
