@@ -276,110 +276,117 @@
         }
     });
 
-    function confirmarAcessoYoutube(event) {
-        event.preventDefault();
-        if (confirm("Deseja abrir o vídeo sobre a manutenção em uma nova aba?")) {
-        window.open("https://www.youtube.com/watch?v=yTATPb8sJLo", "_blank");
-        }
-    }
     (function () {
-    const IMG_SRC = "clickfx.png"; // <-- ajuste aqui se necessário
+  const IMG_SRC = "clickfx.png";
+  const IMPACT_SRC = "finaltiro.png";
 
-    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
-    function lerp(a, b, t) { return a + (b - a) * t; }
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
 
-    // Bézier quadrática (start -> control -> end)
-    function quadBezier(p0, p1, p2, t) {
-      const u = 1 - t;
-      const tt = t * t;
-      const uu = u * u;
+  function quadBezier(p0, p1, p2, t) {
+    const u = 1 - t;
+    const tt = t * t;
+    const uu = u * u;
+    return {
+      x: uu * p0.x + 2 * u * t * p1.x + tt * p2.x,
+      y: uu * p0.y + 2 * u * t * p1.y + tt * p2.y
+    };
+  }
 
-      return {
-        x: uu * p0.x + 2 * u * t * p1.x + tt * p2.x,
-        y: uu * p0.y + 2 * u * t * p1.y + tt * p2.y
-      };
+    function spawnImpact(x, y) {
+    const impact = document.createElement("img");
+    impact.src = IMPACT_SRC;
+    impact.className = "clickfx-impact";
+    impact.alt = "";
+
+    const iw = 64, ih = 64;
+
+    // nasce exatamente no pixel (centralizado)
+    impact.style.left = (x - iw / 2) + "px";
+    impact.style.top  = (y - ih / 2) + "px";
+
+    document.body.appendChild(impact);
+
+    impact.animate(
+        [
+        { transform: "scale(0.6)", opacity: 0 },
+        { transform: "scale(1.05)", opacity: 1, offset: 0.55 },
+        { transform: "scale(1.25)", opacity: 0 }
+        ],
+        { duration: 300, easing: "ease-out", fill: "forwards" }
+    );
+
+    setTimeout(() => impact.remove(), 320);
     }
 
-    function spawnClickFX(targetX, targetY) {
-      // Origem aleatória: esquerda ou direita
-      const fromRight = Math.random() < 0.5;
-      const spinDirection = fromRight ? -1 : 1;
-      const padding = 70; // “fora da tela”
-      const startX = fromRight ? (window.innerWidth + padding) : (-padding);
-      const startY = targetY;
+  function spawnClickFX(targetX, targetY) {
+    const fromRight = Math.random() < 0.5;
+    const spinDirection = fromRight ? -1 : 1;
 
-      // “Ângulo 50°”: arco subindo e descendo (controle acima da linha)
-      const dx = targetX - startX;
-      const dy = targetY - startY;
-      const dist = Math.hypot(dx, dy);
+    const padding = 70;
+    const startX = fromRight ? (window.innerWidth + padding) : (-padding);
+    const startY = targetY;
 
-      // Altura do arco (quanto maior a distância, mais “sobe”)
-      // Ângulo variável entre 20° e 70°
-        const angleDeg = 20 + Math.random() * 50;
-        const angleRad = angleDeg * Math.PI / 180;
+    const dx = targetX - startX;
+    const dist = Math.hypot(dx, 0);
 
-        // Altura do arco baseada no ângulo
-        const arc = Math.tan(angleRad) * Math.abs(dx) * 0.25;
+    const angleDeg = 20 + Math.random() * 50;
+    const angleRad = angleDeg * Math.PI / 180;
+    const arc = Math.tan(angleRad) * Math.abs(dx) * 0.25;
 
-      // Controle no meio, um pouco acima (sobe e desce no alvo)
-      const control = {
-        x: lerp(startX, targetX, 0.5),
-        y: lerp(startY, targetY, 0.5) - arc
-      };
+    const control = {
+      x: lerp(startX, targetX, 0.5),
+      y: lerp(startY, targetY, 0.5) - arc
+    };
 
-      // Elemento
-      const el = document.createElement("img");
-      el.src = IMG_SRC;
-      el.className = "clickfx";
-      el.alt = "";
-      document.body.appendChild(el);
+    const el = document.createElement("img");
+    el.src = IMG_SRC;
+    el.className = "clickfx";
+    el.alt = "";
+    document.body.appendChild(el);
 
-      // Duração proporcional à distância (com limites)
-      const duration = clamp(260 + dist * 0.95, 800, 3300); // ms
+    const duration = clamp(260 + dist * 0.95, 800, 3300);
+    const spinDegPerSec = 1080;
 
-      // Rotação contínua (360 sem parar durante o voo)
-      const spinDegPerSec = 1080; // 3 voltas/seg (ajuste se quiser)
+    const p0 = { x: startX, y: startY };
+    const p1 = control;
+    const p2 = { x: targetX, y: targetY };
 
-      const p0 = { x: startX, y: startY };
-      const p1 = control;
-      const p2 = { x: targetX, y: targetY };
+    let startTime = null;
+    let lastTime = null;
+    let angle = Math.random() * 360;
 
-      let startTime = null;
-      let lastTime = null;
-      let angle = Math.random() * 360;
+    function frame(ts) {
+      if (!startTime) { startTime = ts; lastTime = ts; }
+      const elapsed = ts - startTime;
+      const dt = (ts - lastTime) / 1000;
+      lastTime = ts;
 
-      function frame(ts) {
-        if (!startTime) { startTime = ts; lastTime = ts; }
-        const elapsed = ts - startTime;
-        const dt = (ts - lastTime) / 1000;
-        lastTime = ts;
+      const t = clamp(elapsed / duration, 0, 1);
+      const pos = quadBezier(p0, p1, p2, t);
 
-        const t = clamp(elapsed / duration, 0, 1);
-        const pos = quadBezier(p0, p1, p2, t);
+      angle += spinDegPerSec * dt * spinDirection;
 
-        angle += spinDegPerSec * dt * spinDirection;
+      const w = 46, h = 46;
+      el.style.transform = `translate(${pos.x - w/2}px, ${pos.y - h/2}px) rotate(${angle}deg)`;
 
-        // Centraliza a imagem no ponto
-        const w = 46, h = 46; // deve bater com o CSS (ou ajuste)
-        el.style.transform = `translate(${pos.x - w/2}px, ${pos.y - h/2}px) rotate(${angle}deg)`;
-
-        if (t < 1) {
-          requestAnimationFrame(frame);
-        } else {
-          el.remove();
-        }
+      if (t < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        spawnImpact(targetX, targetY);
+        el.remove();
       }
-
-      requestAnimationFrame(frame);
     }
 
-    // Clique em qualquer lugar
-    document.addEventListener("pointerdown", (ev) => {
-      // ignora clique do botão direito
-      if (ev.button === 2) return;
-      spawnClickFX(ev.clientX, ev.clientY);
-    }, { passive: true });
-  })();
+    requestAnimationFrame(frame);
+  }
+
+  document.addEventListener("pointerdown", (ev) => {
+    if (ev.button === 2) return;
+    spawnClickFX(ev.clientX, ev.clientY);
+  }, { passive: true });
+})();
+
 </script>
 
 </body>
