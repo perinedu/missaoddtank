@@ -219,35 +219,35 @@ article p {
     background-color: rgba(197, 101, 214, 0.92); /* Vermelho com 80% de opacidade */
 }
 
-.mission-group:nth-of-type(5) .mission .mission-header {
+.mission-group:nth-of-type(3) .mission .mission-header {
     background-color: #0401c7; /* Azul bem vivo */
 }
 
-.mission-group:nth-of-type(5) .mission {
+.mission-group:nth-of-type(3) .mission {
     background-color: rgba(26, 86, 250, 0.95); /* Azul forte e vibrante com 92% de opacidade */
 }
 
-.mission-group:nth-of-type(6) .mission .mission-header {
+.mission-group:nth-of-type(2) .mission .mission-header {
     background-color: #007824; /* Vermelho */
 }
 
-.mission-group:nth-of-type(6) .mission {
+.mission-group:nth-of-type(2) .mission {
     background-color: rgba(14, 247, 53, 0.92); /* Vermelho com 80% de opacidade */
 }
 
-.mission-group:nth-of-type(4) .mission .mission-header {
+.mission-group:nth-of-type(5) .mission .mission-header {
     background-color: #8f0000;
 }
 
-.mission-group:nth-of-type(4) .mission {
+.mission-group:nth-of-type(5) .mission {
     background-color: #ff2727;
 }
 
-.mission-group:nth-of-type(6) .mission .mission-header {
+.mission-group:nth-of-type(4) .mission .mission-header {
     background-color: #007824; /* Vermelho */
 }
 
-.mission-group:nth-of-type(6) .mission {
+.mission-group:nth-of-type(4) .mission {
     background-color: rgba(14, 247, 53, 0.92); /* Vermelho com 80% de opacidade */
 }
 
@@ -693,15 +693,6 @@ body.modal-open{
   transform: translateY(1px);
 }
 
-/* badge NEW proporcional */
-#calcButton .new-badge{
-  position: absolute;
-  top: -12px;
-  left: -12px;
-  width: 44px;
-  height: 44px;
-}
-
 /* Barra de busca responsiva (corrige mobile) */
 .search-container{
   display: flex;
@@ -735,4 +726,97 @@ body.modal-open{
     margin-left: 0;    /* remove o offset do desktop */
     height: 44px;      /* confortável no toque */
   }
+}
+
+/* ===== BOTÃO CALCULADORA – IDENTIDADE FUTURISTA (SEM MUDAR FORMATO) ===== */
+#calcButton{
+  font-family: 'Oxanium', system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .8px; /* levemente menor que Orbitron */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+
+  /* mantém o formato (altura/borda/radius) do que você já usa */
+  border: 2px solid rgba(120, 255, 255, .35);
+  border-radius: 10px;
+
+  /* nova paleta futurista */
+  background: linear-gradient(135deg, rgba(10,16,28,.92), rgba(18,32,58,.92));
+  color: rgba(230, 255, 255, .95);
+
+  box-shadow:
+    0 0 0 1px rgba(120,255,255,.15) inset,
+    0 10px 26px rgba(0,0,0,.35),
+    0 0 18px rgba(80,255,255,.18);
+
+  text-shadow: none;
+  letter-spacing: .4px;
+}
+
+/* brilho “holográfico” que passa */
+#calcButton::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(120,255,255,.20) 35%,
+    rgba(180,120,255,.18) 50%,
+    rgba(120,255,255,.20) 65%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  animation: calcHoloSweep 2.8s ease-in-out infinite;
+  pointer-events:none;
+  mix-blend-mode: screen;
+}
+
+/* scanlines sutis (futurista) */
+#calcButton::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.08) 0px,
+      rgba(255,255,255,.08) 1px,
+      transparent 2px,
+      transparent 6px
+    );
+  opacity: .22;
+  pointer-events:none;
+}
+
+/* hover: ativa “neon” */
+#calcButton:hover{
+  border-color: rgba(120,255,255,.65);
+  box-shadow:
+    0 0 0 1px rgba(120,255,255,.22) inset,
+    0 12px 28px rgba(0,0,0,.38),
+    0 0 26px rgba(80,255,255,.30);
+  filter: brightness(1.08);
+}
+
+/* clique */
+#calcButton:active{
+  transform: translateY(1px);
+  filter: brightness(1.02);
+}
+
+/* animação do sweep */
+@keyframes calcHoloSweep{
+  0%   { transform: translateX(-120%); opacity: .0; }
+  15%  { opacity: .9; }
+  55%  { opacity: .9; }
+  100% { transform: translateX(120%); opacity: .0; }
+}
+
+/* acessibilidade */
+@media (prefers-reduced-motion: reduce){
+  #calcButton::before{ animation: none; opacity: .0; }
 }
