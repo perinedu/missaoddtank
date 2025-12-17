@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -39,11 +38,13 @@
     <div class="search-container">
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Buscar missão..." onkeyup="searchMission()">
-            <!-- Adicionado o evento onkeyup -->
-            <button id="searchButton" type="button" onclick="clearInput()">Limpar</button>
-            <!-- Adicionado type="button" -->
+          <button id="calcButton" type="button" onclick="openCalcModal()">
+            <span class="new-badge"></span>
+              Calculadora de Cartas  
+        </button>
         </div>
     </div>
+
     <div class="mission-group">
     <div class="mission">
         <div class="mission-header" onclick="toggleMission(this.parentElement)">
@@ -216,6 +217,16 @@
         <!-- ---------------------------------------------------------------------------------------------------- -->
         <!-- ---------------------------------------------------------------------------------------------------- -->
 </section>
+<div id="calcModal" class="calc-modal" aria-hidden="true">
+  <div class="calc-modal__backdrop" onclick="closeCalcModal()"></div>
+
+  <div class="calc-modal__panel" role="dialog" aria-modal="true" aria-label="Calculadora - Upgrade de Cartas">
+    <button class="calc-modal__close" type="button" onclick="closeCalcModal()">×</button>
+
+    <iframe id="calcModalFrame" src="backup.html?mode=modal" class="calc-modal__frame" frameborder="0"></iframe>
+
+  </div>
+</div>
 <script>
     function clearInput() {
         document.getElementById("searchInput").value = "";
@@ -408,7 +419,25 @@
     spawnClickFX(ev.clientX, ev.clientY);
   }, { passive: true });
 })();
+    function openCalcModal(){
+    const m = document.getElementById("calcModal");
+    if (!m) return;
+    m.classList.add("is-open");
+    m.setAttribute("aria-hidden","false");
+    document.body.classList.add("modal-open");
+    }
 
+    function closeCalcModal(){
+    const m = document.getElementById("calcModal");
+    if (!m) return;
+    m.classList.remove("is-open");
+    m.setAttribute("aria-hidden","true");
+    document.body.classList.remove("modal-open");
+    }
+
+    document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeCalcModal();
+    });
 </script>
 
 </body>
