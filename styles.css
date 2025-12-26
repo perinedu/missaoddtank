@@ -1007,3 +1007,18 @@ body.modal-open{
     0 0 36px rgba(255,204,85,.55),
     inset 0 0 16px rgba(255,204,85,.25) !important;
 }
+
+/* Canvas de fogos ao fundo */
+#fireworks-bg{
+  position: fixed;
+  inset: 0;
+  z-index: 0;                 /* fica atrás de tudo */
+  pointer-events: none;        /* não interfere em cliques */
+  background: transparent;
+}
+
+/* Garante que o conteúdo fique acima */
+body > *{
+  position: relative;
+  z-index: 1;
+}
