@@ -417,10 +417,11 @@ img {
 
 /* Combinação das animações */
 .whatsapp-link img {
-    height: 90px;
-    animation: 
-        elastic-pulse 2s infinite ease-in-out,
-        strong-vibrate 1.5s infinite ease-in-out;
+  width: 64px;
+  height: auto;
+  animation:
+    elastic-pulse 2s infinite ease-in-out,
+    strong-vibrate 1.5s infinite ease-in-out;
 }
 
 
@@ -471,10 +472,10 @@ body {
 }
 
 @media (max-width: 768px) {
-    .whatsapp-link img {
-        width: 80px; /* Reduz um pouco mais o tamanho do ícone */
-        height: auto; /* Mantém a proporção da imagem */
-    }
+  .whatsapp-link img {
+    width: 72px; /* um pouco maior no mobile para toque */
+    height: auto; /* Mantém a proporção da imagem */
+  }
 
     .whatsapp-link {
         top: 15px; /* Posiciona mais para cima */
