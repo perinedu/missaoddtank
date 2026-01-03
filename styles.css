@@ -203,55 +203,6 @@ article p {
 
 
 
-.mission-group:nth-of-type(99) .mission .mission-header {
-    background-color: #ffa600;
-}
-
-.mission-group:nth-of-type(99) .mission {
-    background-color: rgba(255, 210, 86, 0.92); /* Vermelho com 80% de opacidade */
-}
-
-.mission-group:nth-of-type(99) .mission .mission-header {
-    background-color: #8800b6;
-}
-
-.mission-group:nth-of-type(99) .mission {
-    background-color: rgba(197, 101, 214, 0.92); /* Vermelho com 80% de opacidade */
-}
-
-.mission-group:nth-of-type(3) .mission .mission-header {
-    background-color: #0401c7; /* Azul bem vivo */
-}
-
-.mission-group:nth-of-type(3) .mission {
-    background-color: rgba(26, 86, 250, 0.95); /* Azul forte e vibrante com 92% de opacidade */
-}
-
-.mission-group:nth-of-type(2) .mission .mission-header {
-    background-color: #007824; /* Vermelho */
-}
-
-.mission-group:nth-of-type(2) .mission {
-    background-color: rgba(14, 247, 53, 0.92); /* Vermelho com 80% de opacidade */
-}
-
-.mission-group:nth-of-type(5) .mission .mission-header {
-    background-color: #8f0000;
-}
-
-.mission-group:nth-of-type(5) .mission {
-    background-color: #ff2727;
-}
-
-.mission-group:nth-of-type(4) .mission .mission-header {
-    background-color: #007824; /* Vermelho */
-}
-
-.mission-group:nth-of-type(4) .mission {
-    background-color: rgba(14, 247, 53, 0.92); /* Vermelho com 80% de opacidade */
-}
-
-
 
 /* Acessibilidade: reduz movimento se preferido pelo usuário */
 @media (prefers-reduced-motion: reduce) {
@@ -417,11 +368,10 @@ img {
 
 /* Combinação das animações */
 .whatsapp-link img {
-  width: 64px;
-  height: auto;
-  animation:
-    elastic-pulse 2s infinite ease-in-out,
-    strong-vibrate 1.5s infinite ease-in-out;
+    height: 90px;
+    animation: 
+        elastic-pulse 2s infinite ease-in-out,
+        strong-vibrate 1.5s infinite ease-in-out;
 }
 
 
@@ -472,10 +422,10 @@ body {
 }
 
 @media (max-width: 768px) {
-  .whatsapp-link img {
-    width: 72px; /* um pouco maior no mobile para toque */
-    height: auto; /* Mantém a proporção da imagem */
-  }
+    .whatsapp-link img {
+        width: 80px; /* Reduz um pouco mais o tamanho do ícone */
+        height: auto; /* Mantém a proporção da imagem */
+    }
 
     .whatsapp-link {
         top: 15px; /* Posiciona mais para cima */
@@ -957,7 +907,7 @@ body.modal-open{
   border-color: rgb(255, 0, 0) !important;
 }
 .mission-group:nth-of-type(4) .mission{
-  border-color: rgba(11, 247, 255) !important;
+  border-color: rgb(12, 158, 216) !important;
 }
 .mission-group:nth-of-type(3) .mission{
   border-color: rgba(238, 255, 0) !important;
@@ -975,8 +925,8 @@ body.modal-open{
   border-bottom: none !important;
 }
 
-.mission-group:nth-of-type(3) .mission{
-  border-color: rgba(238, 255, 0) !important;
+.mission-group:nth-of-type(6) .mission{
+  border-color: rgb(0, 168, 8) !important;
 }
 
 /* ===== BOTÃO CALCULADORA – COR ÂMBAR (DIFERENTE DAS MISSÕES) ===== */
