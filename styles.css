@@ -1,975 +1,434 @@
-html,
-body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('fundo.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-}
+<!DOCTYPE html>
+<html lang="pt-br">
 
-header img {
-    transition: transform 1.3s ease;
-    /* Garante uma transição suave */
-}
-@keyframes fireEffect {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+<head>
 
-@keyframes fireEffect {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>s13 - Surpresas</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="titulo.png" type="image/jpeg">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6809594544652238"
+        crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHR64QY9RD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-.new-badge{
-    position:absolute;
-    top:-5px;
-    left:15px;
-    width:50px;
-    height:50px;              /* OU: aspect-ratio: 1 / 1; height:60px; */
-    background:url('novo.png') no-repeat center/contain;
-    z-index:5;
-    animation:pulseBadge 7s infinite ease-in-out;
-    will-change: transform;
-}
+        gtag('config', 'G-ZHR64QY9RD');
+    </script>
+</head>
 
-/* Efeito de pulsar */
-@keyframes pulseBadge{
-    0%{ transform:scale(1); }
-    50%{ transform:scale(1.1); }
-    100%{ transform:scale(1); }
-}
+<body>
+    <canvas id="fireworks-bg" aria-hidden="true"></canvas>
+    <div class="bg-space" aria-hidden="true">
+        <span class="stars"></span>
+        <span class="neon-lines"></span>
+    </div>
+    <header>
+        <div class="float-x">
+            <div class="float-y">
+                <img id="titleImage" src="titulo.png" alt="titulo">
+            </div>
+        </div>
+    </header>
+    <div class="search-container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar missão..." onkeyup="searchMission()">
+          <button id="calcButton" type="button" onclick="openCalcModal()">
+                Calculadora de Cartas     
+        </button>
+        </div>
+    </div>
+    <div class="mission-group">
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                <span class="new-badge"></span>
+                    Final de Semana I
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/25) Matar GvG (Normal) -</strong> Matar 25 no GvG Normal</p> 
+                    </li>
+                    <li>
+                        <p><strong>(0/5) CSN -</strong> Castelo Sombrio Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/20) Casal -</strong> Ir 20 partidas em casal qualquer modo</p><br>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) CDN -</strong> Covil Dragão Normal</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                <span class="new-badge"></span>
+                    Final de Semana II
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/120) SPA -</strong> Ficar 120 minutos no SPA</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) TPN -</strong> Tribo Piatan Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) PF -</strong> Galinheiro Fácil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) BD -</strong> Bugou Difícil</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+            <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                <span class="new-badge"></span>
+                    Final de Semana III
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/30) Matar (Equilibrado) -</strong> Matar 30 no GvG Equilibrado</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/3) OBN -</strong> Olimpiadas Boom Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/3) PD -</strong> Galinheiro Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/350) CF -</strong> Fazer 350 Pontos em qualquer horário</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                <span class="new-badge"></span>
+                    Final de Semana IV
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/3) CSN -</strong> Castelo Sombrio Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/3) OBD -</strong> Olimpiadas Boom Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/35) Matar Torneio -</strong> Matar 35 no GvG em horário de Torneio</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/35) Matar PvP -</strong> Matar 35 no PvP qualquer modo</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+    </div>
 
-.mission-header {
-    position: relative;
-    padding-left: 50px; /* Ajuste para não sobrepor o texto */
-}
-
-
-header img:hover {
-    transform: scale(1.1);
-    /* Aumenta a imagem em 10% */
-}
-
-header{
-  display:flex;
-  justify-content:center; /* centraliza horizontalmente */
-  align-items:center;     /* opcional: centraliza verticalmente */
-}
-.destaque-branco p {
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    position: relative;
-    display: inline-block;
-}
-
-
-/* Camada X: deriva lenta para os lados */
-.float-x{
-  display:inline-block;
-  animation: driftX 9.5s ease-in-out infinite alternate;
-  animation-delay: -2.1s;          /* dessincroniza p/ parecer natural */
-  will-change: transform;
-}
-
-/* Camada Y: sobe/desce em outro ritmo */
-.float-y{
-  display:inline-block;
-  animation: driftY 11.2s ease-in-out infinite alternate;
-  animation-delay: -3.4s;
-  will-change: transform;
-}
-
-/* Imagem: leve rotação contínua (vai e volta) */
-#titleImage{
-  width:150px; height:auto; display:block; margin:0 auto;
-  transition: transform 0.25s ease, filter 0.25s ease;
-  filter: drop-shadow(0 0 10px rgba(0,153,255,.6));
-  animation: rollZ 13.6s ease-in-out infinite alternate;
-  animation-delay: -1.7s;
-  will-change: transform, filter;
-}
-
-/* Hover: zoom + brilho, sem “quebrar” o balanço */
-#titleImage:hover{
-  transform: scale(1.5);
-  filter: brightness(1.5) drop-shadow(0 0 16px rgba(0,153,255,.85));
-}
-
-/* Keyframes suaves (sem pontos “travados”) */
-@keyframes driftX{
-  0%   { transform: translateX(0) }
-  50%  { transform: translateX(8px) }
-  100% { transform: translateX(-7px) }
-}
-
-@keyframes driftY{
-  0%   { transform: translateY(0) }
-  50%  { transform: translateY(-9px) }
-  100% { transform: translateY(6px) }
-}
-
-@keyframes rollZ{
-  0%   { transform: rotate(0deg) }
-  50%  { transform: rotate(2.2deg) }
-  100% { transform: rotate(-2.6deg) }
-}
-
-/* Acessibilidade: reduz movimento */
-@media (prefers-reduced-motion: reduce){
-  .float-x, .float-y, #titleImage{ animation: none !important; }
-}
-
-article {
-    background-color: #fff;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-article h2 {
-    margin: 0;
-    font-size: 1.5em;
-}
-
-article p {
-    margin-top: 10px;
-}
-
-.mission-group {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin: 20px 5%;
-}
-
-.mission {
-    flex-grow: 1;
-    min-width: 200px;
-    max-width: 300px;
-    margin: 10px;
-    border: 2px solid transparent;
-    background: rgba(255, 255, 255, 0.7);
-    cursor: pointer;
-    height: auto;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.mission-header {
-    font-size: 115%;
-    /* Aumentar a fonte em 15% */
-    padding: 10px;
-    background: #003f69;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    font-weight: bold;
-    text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-    /* Isto adiciona um efeito de contorno preto ao redor do texto */
-    /* Se você já possui outros estilos para .mission-header, apenas acrescente ou atualize os mencionados acima. */
-}
-
-.mission-content {
-    display: none;
-    padding: 10px;
-    pointer-events: none;
-
-}
-
-.mission-content ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.mission-content li {
-    padding: 5px 0;
-    border-bottom: 1px dashed black;
-}
-
-
-
-
-/* Acessibilidade: reduz movimento se preferido pelo usuário */
-@media (prefers-reduced-motion: reduce) {
-  .mission-group:nth-of-type(7) .mission,
-  .mission-group:nth-of-type(7) .mission::before,
-  .mission-group:nth-of-type(7) .mission .mission-header::after {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-
-@keyframes pulseBackground {
-    0% { filter: brightness(1); }
-    50% { filter: brightness(1.3); }
-    100% { filter: brightness(1); }
-}
-
-@keyframes glowingBorder {
-    0% { box-shadow: 0 0 6px rgba(255, 255, 0, 0.5); }
-    50% { box-shadow: 0 0 15px rgba(255, 255, 0, 1); }
-    100% { box-shadow: 0 0 6px rgba(255, 255, 0, 0.5); }
-}
-
-
-/* Efeito de brilho suave */
-@keyframes pulseBackground {
-    0% { filter: brightness(1); }
-    50% { filter: brightness(1.3); }
-    100% { filter: brightness(1); }
-}
-
-@keyframes glowingBorder {
-    0% { box-shadow: 0 0 5px rgba(255, 102, 0, 0.6); }
-    50% { box-shadow: 0 0 15px rgba(255, 102, 0, 1); }
-    100% { box-shadow: 0 0 5px rgba(255, 102, 0, 0.6); }
-}
-
-.mission-group .mission {
-    animation: pulseBackground 3s infinite ease-in-out, glowingBorder 3s infinite ease-in-out;
-}
-
-.mission:hover {
-    border: 2px solid yellow;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-4px);
-    /* Dá uma sensação de "levantar" o elemento ao passar o mouse */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Adiciona uma transição suave */
-    filter: brightness(1.4);
-    /* Clareia o elemento em 20% */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-    /* Adiciona uma transição suave para o efeito de brilho */
-}
-
-.search-container {
-    text-align: center;
-    margin: 20px;
-}
-
-#searchInput,
-#searchButton {
-    height: 40px;
-    /* Definir a altura que você deseja */
-    box-sizing: border-box;
-    /* Isto garante que padding e borda são incluídos na altura */
-    border-radius: 5px;
-    font-weight: bold;
-    border: 2px solid white; /* Borda branca */
-    /* Arredonda os cantos */
-}
-
-#searchInput {
-    padding-left: 10px;
-    /* Espaçamento interno à esquerda para o texto */
-    border: 1px solid #ccc;
-    /* Uma borda simples */
-    font-size: 16px;
-}
-
-#searchButton {
-    border: none;
-    /* Elimina a borda padrão do botão */
-    background-color: #6a00ff;
-    color: #ffffff;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    
-}
-
-#searchButton:hover {
-    background-color: #4600a8;
-}
-
-
-.mission.non-matching .mission-header {
-    background-color: rgba(220, 220, 220, 0.8);
-}
-
-.mission-content-item.non-matching {
-    background-color: rgba(220, 220, 220, 0.8);
-}
+    <div class="mission-group">
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                Último do ano (EXP 4)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/5) BD -</strong> Bugou Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/30) Ganhar GvG (Normal) -</strong> Ganhar 30 GvG Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) PD -</strong> Pintinho Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/120) SPA -</strong> Ficar 120 minutos no SPA</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                Último do ano (Prática)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/5) PN -</strong> Pintinho Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/35) Ganhar GvG -</strong> Ganhar 35 GvG em qualquer modo</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) TPN -</strong> Tribo Piatan Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>Descobrindo -</strong> Em descoberta</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        </div>
+        <div class="mission-group">
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                Trinta (14/01)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/25) Ganhar GvG -</strong> Ganhar 25 GvG</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) TPN -</strong> Tribo Piatan Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) FF -</strong> Formigueiro Fácil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/500) Pontos CF -</strong> Obter 500 pontos no CF</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                Segundinha (12/01)
+            </div>
+            <div class="mission-content">
+            <ul>
+                <li>
+                    <p><strong>(0/3) CDD -</strong> Covil Dragão Difícil</p>
+                </li>
+                <li>
+                    <p><strong>(0/5) FF -</strong> Formigueiro Fácil</p>
+                </li>
+                <li>
+                    <p><strong>(0/3) TPN -</strong> Tribo Piatan Normal</p>
+                </li>
+                <li>
+                    <p><strong>(0/25) Ir GvG -</strong> Ir 25 GvG qualquer modo</p>
+                </li>
+            </ul>
+        </div>
+        <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+        <div class="mission-header" onclick="toggleMission(this.parentElement)">
+            Domingo (12/01)
+        </div>
+        <div class="mission-content">
+            <ul>
+                <li>
+                    <p><strong>(0/25) Matar PvP (Normal) -</strong> Matar 25 no PvP Normal</p>
+                </li>
+                <li>
+                    <p><strong>(0/5) BN -</strong> Bugou Normal</p>
+                </li>
+                <li>
+                    <p><strong>(0/5) TPD -</strong> Tribo Piatan Difícil</p>
+                </li>
+                <li>
+                    <p><strong>(0/35) Matar GvG -</strong> Matar 35 no GvG qualquer modo</p>
+                </li>
+            </ul>
+        </div>
+        <!-- FIM MODELO MISSÃO -->
+        </div>
+    </div>
+    </div>
+    <div class="mission-group">
+            <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                F de Semana (10/01)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/3) CSD -</strong> Castelo Sombrio Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/3) TPN -</strong> Tribo Piatan Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/25) Matar Torneio -</strong> Matar 25 em horário de Torneio</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/20) Ir PvP -</strong> Ir 20 PvP qualquer modo</p>
+                    </li>
+                </ul>
+            </div>
+   <!-- FIM MODELO MISSÃO -->
+    </div>
+    <div class="mission">
+        <div class="mission-header" onclick="toggleMission(this.parentElement)">
+            F de Semana (OLD) - (04/01)
+        </div>
+        <div class="mission-content">
+            <ul>
+                <li>
+                    <p><strong>(0/20) Ganhar GvG -</strong> Ganhar 20 GvG qualquer modo</p>
+                </li>
+                <li>
+                    <p><strong>(0/3) OBN -</strong> Olimpiadas Boom Normal</p>
+                </li>
+                <li>
+                    <p><strong>(0/60) SPA -</strong> Ficar 60 minutos no SPA</p>
+                </li>
+                <li>
+                    <p><strong>(0/5) PN -</strong> Galinheiro Normal</p>
+                </li>
+            </ul>
+        </div>
+        <!-- FIM MODELO MISSÃO -->
+    </div>
+</div>
 
 
-@media (max-width: 768px) {
-    .mission {
-        /* Estilos para telas menores aqui */
-        min-width: 100%;
-        margin: 5px 0;
-    }
-}
 
-img {
-    max-width: 100%;
-    height: auto;
-}
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
+        <!-- ---------------------------------------------------------------------------------------------------- -->
+        <!-- ---------------------------------------------------------------------------------------------------- -->
+        <!-- ---------------------------------------------------------------------------------------------------- -->
+        <!-- ---------------------------------------------------------------------------------------------------- -->
+        <!-- ---------------------------------------------------------------------------------------------------- -->
+</section>
+<div id="calcModal" class="calc-modal" aria-hidden="true">
+  <div class="calc-modal__backdrop" onclick="closeCalcModal()"></div>
 
-    50% {
-        transform: scale(1.15);
+  <div class="calc-modal__panel" role="dialog" aria-modal="true" aria-label="Calculadora - Upgrade de Cartas">
+    <button class="calc-modal__close" type="button" onclick="closeCalcModal()">×</button>
+
+    <iframe id="calcModalFrame" src="backup.html?mode=modal" class="calc-modal__frame" frameborder="0"></iframe>
+
+  </div>
+</div>
+<script>
+    function clearInput() {
+        document.getElementById("searchInput").value = "";
+        searchMission();
     }
 
-    100% {
-        transform: scale(1);
-    }
-}
-
-.whatsapp-link {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-/* Animação de Pulsação Elástica */
-@keyframes elastic-pulse {
-    0% { transform: scale(1); }
-    40% { transform: scale(1.2); }
-    60% { transform: scale(0.9); }
-    100% { transform: scale(1); }
-}
-
-/* Animação de Vibração Mais Forte */
-@keyframes strong-vibrate {
-    0% { transform: rotate(0deg); }
-    15% { transform: rotate(-6deg); }
-    30% { transform: rotate(6deg); }
-    45% { transform: rotate(-6deg); }
-    60% { transform: rotate(6deg); }
-    75% { transform: rotate(-6deg); }
-    100% { transform: rotate(0deg); }
-}
-
-/* Combinação das animações */
-.whatsapp-link img {
-    height: 90px;
-    animation: 
-        elastic-pulse 2s infinite ease-in-out,
-        strong-vibrate 1.5s infinite ease-in-out;
-}
-
-
-.copy-button-wrapper {
-    flex-basis: 100%;
-    /* Faz com que ocupe toda a largura disponível, forçando o que estiver após a div a ir para a próxima linha */
-    text-align: center;
-    /* Centraliza o botão horizontalmente */
-}
-
-.mission-group button {
-    /* ... o resto do seu estilo para o botão ... */
-    display: inline-block;
-    /* Faz com que o botão seja tratado como um bloco, mas não ocupe toda a largura */
-}
-
-
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.selection-box {
-    flex: 1;
-    background-color: #007BFF;
-    color: black;
-    text-align: center;
-    padding: 30px 0;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 24px;
-    border: none;
-    outline: none;
-    margin: 0 10px;
-    /* Espaçamento entre as caixas */
-}
-
-.selection-box:hover {
-    background-color: #0056b3;
-}
-
-/* Estilos adicionais para a página */
-.whatsapp-link {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-}
-
-@media (max-width: 768px) {
-    .whatsapp-link img {
-        width: 80px; /* Reduz um pouco mais o tamanho do ícone */
-        height: auto; /* Mantém a proporção da imagem */
+    function toggleMission(missionElement) {
+        const content = missionElement.querySelector('.mission-content');
+        if (!content) return;
+        content.style.display = (content.style.display === "none" || content.style.display === "") ? "block" : "none";
     }
 
-    .whatsapp-link {
-        top: 15px; /* Posiciona mais para cima */
-        left: -5px; /* Move mais para a esquerda */
-        right: unset; /* Remove o alinhamento à direita */
-        bottom: unset; /* Remove o posicionamento inferior */
-        position: absolute; /* Usa posição absoluta para posicionamento */
-        z-index: 1000; /* Garante que fique acima de outros elementos */
+    function searchMission() {
+        const input = document.getElementById("searchInput");
+        if (!input) return;
+        const filter = input.value.toUpperCase();
+        const missions = document.querySelectorAll(".mission");
+
+        for (const mission of missions) {
+        const text = mission.textContent || mission.innerText;
+        const trimmedText = (text || "").toUpperCase().trim();
+
+        const match = trimmedText.includes(filter) || filter === "";
+        mission.classList.toggle("non-matching", !match);
+
+        const missionHeader = mission.querySelector(".mission-header");
+        if (missionHeader) missionHeader.style.backgroundColor = match ? "" : "rgba(220,220,220,0.8)";
+        mission.style.backgroundColor = match ? "" : "rgba(220,220,220,0.8)";
+        mission.style.animation = match ? "pulseBackground 3s infinite ease-in-out, glowingBorder 2s infinite ease-in-out" : "none";
+
+        const content = mission.querySelector('.mission-content');
+        if (content) content.style.display = match ? "block" : "none";
+        }
     }
 
-    #titleImage {
-        margin-left: auto; /* Empurra o título para a direita */
+    function copyMissions(missionGroup) {
+        if (!missionGroup) return;
+        const missions = missionGroup.querySelectorAll('.mission');
+        if (!missions.length) return;
+
+        let textToCopy = '';
+        missions.forEach((mission) => {
+        const headerEl = mission.querySelector('.mission-header');
+        if (!headerEl) return;
+        textToCopy += (headerEl.textContent || "").trim() + '\n';
+
+        const details = mission.querySelectorAll('.mission-content li p');
+        details.forEach((detail) => {
+            let cleanDetail = (detail.textContent || "").trim().replace(/(\s*\n\s*)+/g, ' ');
+            textToCopy += '- ' + cleanDetail + '\n';
+        });
+        textToCopy += '\n';
+        });
+
+        const textarea = document.createElement('textarea');
+        textarea.value = textToCopy;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert("Missões copiadas para a área de transferência!");
     }
-}
 
-/* Mostra o texto sutil no topo da descrição QUANDO ABERTO */
-.mission-content{ position: relative; }
-
-/* Texto igual ao anterior, só que ancorado na área da descrição */
-.mission-content::before{
-  content: "missaoddtank.com";
-  position: absolute;
-  left: 12px; right: 12px; top: 2;     /* topo da descrição */
-  text-align: right;
-  font: 700 10px/1 Arial, sans-serif;
-  color: #000; 
-  opacity: .99;
-  pointer-events: none;
-  margin-top: -5px;
-}
-
-/* Reserva espaço para não sobrepor a primeira linha da missão */
-.mission:has(.mission-content[style*="display: block"]) .mission-content{
-  padding-top: 22px !important;
-}
-
-/* 🔒 Congela animações/transformações apenas quando ABERTO */
-.mission:has(.mission-content[style*="display: block"]){
-  animation:none !important;
-  transform:none !important;
-  filter:none !important;
-}
-.mission:has(.mission-content[style*="display: block"]) *{
-  animation:none !important;   /* bloqueia “respiração” herdada */
-}
-.mission:has(.mission-content[style*="display: block"]):hover{
-  transform:none !important;
-  filter:none !important;
-  box-shadow:0 2px 4px rgba(0,0,0,.12); /* opcional, estável */
-}
-
-.clickfx {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 60px;
-  height: 60px;
-  pointer-events: none;
-  z-index: 999999;
-  will-change: transform;
-  transform: translate(-9999px, -9999px) rotate(0deg);
-  filter: drop-shadow(0 0 10px rgba(255, 210, 120, .75));
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .clickfx { display: none !important; }
-}
-
-.clickfx-impact{
-  position: fixed;
-  width: 120px;
-  height: 120px;
-  pointer-events: none;
-  z-index: 1000000;
-  margin-top: -30px;
-  margin-left: -20px;
-}
-.clickfx-impact.is-on {
-  opacity: 1;
-  transform: translate(var(--x), var(--y)) scale(1.05);
-  transition: transform 180ms ease-out, opacity 180ms ease-out;
-}
-
-.clickfx-impact.is-off {
-  opacity: 0;
-  transform: translate(var(--x), var(--y)) scale(1.25);
-  transition: transform 220ms ease-in, opacity 220ms ease-in;
-}
-
-/* modal */
-.calc-modal{
-  position: fixed;
-  inset: 0;
-  display: none;
-  z-index: 999999;
-}
-.calc-modal.is-open{ display: block; }
-
-.calc-modal__backdrop{
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,.65);
-  backdrop-filter: blur(2px);
-}
-
-.calc-modal__panel{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-
-  width: min(92vw, 560px);
-  height: min(88vh, 520px);
-
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 18px 50px rgba(0,0,0,.65);
-}
-
-/* botão X alinhado à barra do título da calculadora */
-.calc-modal__close{
-  position: absolute;
-  right: 10px;
-  margin-top: 20px;          /* DESKTOP */
-  margin-right: 10px;
-  z-index: 10;
-}
-
-/* MOBILE: desce um pouco mais */
-@media (max-width: 768px){
-  .calc-modal__close{
-    margin-top: 40px;
-  }
-}
-
-/* MOBILE: desce um pouco mais */
-@media (max-width: 1028px){
-  .calc-modal__close{
-    margin-top: 40px;
-    margin-right: 20px;
-  }
-}
-
-.calc-modal__frame{
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-  overflow: hidden; /* evita scrollbar “interna” */
-}
-
-.calc-modal__frame{
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-}
-
-/* botão fechar */
-.calc-modal__close{
-  position: absolute;
-  right: 10px;
-  top: 8px;
-  width: 34px;
-  height: 30px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,.25);
-  background: linear-gradient(#f06c6c, #b11919);
-  color: #fff;
-  font-weight: 900;
-  cursor: pointer;
-  z-index: 2;
-}
-
-body.modal-open{
-  overflow: hidden;
-}
-
-@media (min-width: 1024px){
-  .calc-modal__panel{
-    width: 540px;
-    height: 470px;
-  }
-}
-
-
-/* Botão da calculadora — área maior */
-#calcButton{
-  height: 48px;                 /* maior que os outros */
-  margin-left: 10px;
-  padding: 0 26px;              /* área horizontal maior */
-
-  border-radius: 10px;
-  border: 2px solid #2b1608;
-
-  background: linear-gradient(#7c4a17, #4a260b);
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-
-  cursor: pointer;
-  position: relative;
-
-  text-shadow:
-    -1px -1px 0 #000,
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000;
-}
-
-/* hover / active */
-#calcButton:hover{
-  filter: brightness(1.2);
-}
-#calcButton:active{
-  transform: translateY(1px);
-}
-
-/* Barra de busca responsiva (corrige mobile) */
-.search-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-/* Desktop: mantém tudo na mesma linha */
-#searchInput{
-  width: 360px;
-  max-width: 60vw;
-}
-
-/* Mobile: input 100% e botões embaixo */
-@media (max-width: 768px){
-  .search-container{
-    padding: 0 12px;
-  }
-
-  #searchInput{
-    width: 100%;
-    max-width: 100%;
-  }
-
-  #searchButton,
-  #calcButton{
-    flex: 1 1 140px;   /* divide a linha */
-    width: auto;
-    margin-left: 0;    /* remove o offset do desktop */
-    height: 44px;      /* confortável no toque */
-  }
-}
-
-/* ===== BOTÃO CALCULADORA – IDENTIDADE FUTURISTA (SEM MUDAR FORMATO) ===== */
-#calcButton{
-  font-family: 'Oxanium', system-ui, sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .8px; /* levemente menor que Orbitron */
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-
-  /* mantém o formato (altura/borda/radius) do que você já usa */
-  border: 2px solid rgba(120, 255, 255, .35);
-  border-radius: 10px;
-
-  /* nova paleta futurista */
-  background: linear-gradient(135deg, rgba(10,16,28,.92), rgba(18,32,58,.92));
-  color: rgba(230, 255, 255, .95);
-
-  box-shadow:
-    0 0 0 1px rgba(120,255,255,.15) inset,
-    0 10px 26px rgba(0,0,0,.35),
-    0 0 18px rgba(80,255,255,.18);
-
-  text-shadow: none;
-  letter-spacing: .4px;
-}
-
-/* brilho “holográfico” que passa */
-#calcButton::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(120,255,255,.20) 35%,
-    rgba(180,120,255,.18) 50%,
-    rgba(120,255,255,.20) 65%,
-    transparent 100%
-  );
-  transform: translateX(-120%);
-  animation: calcHoloSweep 2.8s ease-in-out infinite;
-  pointer-events:none;
-  mix-blend-mode: screen;
-}
-
-/* scanlines sutis (futurista) */
-#calcButton::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,.08) 0px,
-      rgba(255,255,255,.08) 1px,
-      transparent 2px,
-      transparent 6px
-    );
-  opacity: .22;
-  pointer-events:none;
-}
-
-/* hover: ativa “neon” */
-#calcButton:hover{
-  border-color: rgba(120,255,255,.65);
-  box-shadow:
-    0 0 0 1px rgba(120,255,255,.22) inset,
-    0 12px 28px rgba(0,0,0,.38),
-    0 0 26px rgba(80,255,255,.30);
-  filter: brightness(1.08);
-}
-
-/* clique */
-#calcButton:active{
-  transform: translateY(1px);
-  filter: brightness(1.02);
-}
-
-/* animação do sweep */
-@keyframes calcHoloSweep{
-  0%   { transform: translateX(-120%); opacity: .0; }
-  15%  { opacity: .9; }
-  55%  { opacity: .9; }
-  100% { transform: translateX(120%); opacity: .0; }
-}
-
-/* acessibilidade */
-@media (prefers-reduced-motion: reduce){
-  #calcButton::before{ animation: none; opacity: .0; }
-}
-
-/* ===== MISSÕES – IDENTIDADE FUTURISTA (MESMO ESTILO DOS BOTÕES) ===== */
-
-/* Fonte global das missões */
-.mission, .mission-header{
-  font-family: 'Oxanium', system-ui, sans-serif;
-}
-
-/* Card da missão */
-.mission{
-  position: relative;
-  overflow: hidden;
-
-  border: 2px solid rgba(120,255,255,.22) !important;
-  background: linear-gradient(135deg, rgba(10,16,28,.78), rgba(18,32,58,.78)) !important;
-
-  box-shadow:
-    0 0 0 1px rgba(120,255,255,.10) inset,
-    0 10px 26px rgba(0,0,0,.28),
-    0 0 18px rgba(80,255,255,.12) !important;
-}
-
-/* Scanlines sutis no card */
-.mission::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,.07) 0px,
-      rgba(255,255,255,.07) 1px,
-      transparent 2px,
-      transparent 7px
-    );
-  opacity: .18;
-  pointer-events:none;
-}
-
-/* Header futurista */
-.mission-header{
-  position: relative;
-  overflow: hidden;
-
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .6px;
-
-  background: linear-gradient(135deg, rgba(10,16,28,.92), rgba(18,32,58,.92)) !important;
-  border-bottom: 2px solid rgba(120,255,255,.18) !important;
-
-  color: rgba(230,255,255,.95) !important;
-  text-shadow: 0 0 6px rgba(120,255,255,.18);
-}
-
-/* Varredura holográfica no header */
-.mission-header::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(120,255,255,.18) 35%,
-    rgba(180,120,255,.16) 50%,
-    rgba(120,255,255,.18) 65%,
-    transparent 100%
-  );
-  transform: translateX(-120%);
-  animation: missionHoloSweep 3.1s ease-in-out infinite;
-  pointer-events:none;
-  mix-blend-mode: screen;
-}
-
-/* Hover mais “neon” */
-.mission:hover{
-  border-color: rgba(120,255,255,.45) !important;
-  box-shadow:
-    0 0 0 1px rgba(120,255,255,.16) inset,
-    0 12px 28px rgba(0,0,0,.34),
-    0 0 26px rgba(80,255,255,.20) !important;
-  filter: brightness(1.06);
-}
-
-@keyframes missionHoloSweep{
-  0%   { transform: translateX(-120%); opacity: 0; }
-  15%  { opacity: .9; }
-  55%  { opacity: .9; }
-  100% { transform: translateX(120%); opacity: 0; }
-}
-
-/* Acessibilidade */
-@media (prefers-reduced-motion: reduce){
-  .mission-header::before{ animation: none; opacity: 0; }
-}
-/* ===== MISSÕES – TEXTO 100% BRANCO ===== */
-
-/* texto geral da missão */
-.mission,
-.mission *{
-  color: #ffffff !important;
-}
-
-/* títulos */
-.mission-header{
-  color: #ffffff !important;
-  text-shadow: 0 0 6px rgba(120,255,255,.25);
-}
-
-/* listas e descrições */
-.mission-content,
-.mission-content p,
-.mission-content li,
-.mission-content strong{
-  color: #ffffff !important;
-}
-
-/* links dentro das missões */
-.mission a,
-.mission a:visited,
-.mission a:hover,
-.mission a:active{
-  color: #ffffff !important;
-  text-decoration: underline;
-}
-
-/* indicativo do site (missaoddtank.com) */
-.mission-content::before{
-  color: #ffffff !important;
-  opacity: .85;
-}
-
-.mission-group:nth-of-type(5) .mission{
-  border-color: rgb(255, 0, 0) !important;
-}
-.mission-group:nth-of-type(4) .mission{
-  border-color: rgb(12, 158, 216) !important;
-}
-.mission-group:nth-of-type(3) .mission{
-  border-color: rgba(238, 255, 0) !important;
-}
-
-/* linha divisória entre itens */
-.mission-content li{
-  border-bottom: 1px dashed rgba(129, 126, 126, 0.85) !important;
-  padding-bottom: 6px;
-  margin-bottom: 6px;
-}
-
-/* remove a linha do último item */
-.mission-content li:last-child{
-  border-bottom: none !important;
-}
-
-.mission-group:nth-of-type(6) .mission{
-  border-color: rgb(0, 168, 8) !important;
-}
-
-/* ===== BOTÃO CALCULADORA – COR ÂMBAR (DIFERENTE DAS MISSÕES) ===== */
-#calcButton{
-  border-color: #ffcc55 !important;
-  color: #fff2cc !important;
-
-  background: linear-gradient(
-    180deg,
-    #ff1e00,
-    #810000
-  ) !important;
-
-  box-shadow:
-    0 0 12px rgba(255,204,85,.55),
-    0 0 24px rgba(255,204,85,.35),
-    inset 0 0 12px rgba(255,204,85,.18) !important;
-}
-
-/* pulso dourado */
-#calcButton::before{
-  box-shadow: 0 0 18px rgba(255,204,85,.65) !important;
-}
-
-/* hover */
-#calcButton:hover{
-  box-shadow:
-    0 0 18px rgba(255,204,85,.85),
-    0 0 36px rgba(255,204,85,.55),
-    inset 0 0 16px rgba(255,204,85,.25) !important;
-}
-
-/* Canvas de fogos ao fundo */
-#fireworks-bg{
-  position: fixed;
-  inset: 0;
-  z-index: 0;                 /* fica atrás de tudo */
-  pointer-events: none;        /* não interfere em cliques */
-  background: transparent;
-}
-
-/* Garante que o conteúdo fique acima */
-body > *{
-  position: relative;
-  z-index: 1;
-}
+    function countVisitsInConsole() {
+        const visitCount = localStorage.getItem('visitCountConsole');
+        const newCount = visitCount ? (parseInt(visitCount, 10) || 0) + 1 : 1;
+        localStorage.setItem('visitCountConsole', newCount);
+        console.log(`Visitas nesta página: ${newCount}`);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        countVisitsInConsole();
+
+        // Evita erro quando .destaque-branco p não existe
+        const textElement = document.querySelector(".destaque-branco p");
+        if (textElement) {
+        const animations = ["lightPassHorizontal","lightPassVertical","lightPassDiagonal","lightPassCircular"];
+        const randomDirection = animations[Math.floor(Math.random() * animations.length)];
+        textElement.style.animation = `${randomDirection} 1s infinite linear`;
+        }
+    });
+
+    function openCalcModal(){
+    const m = document.getElementById("calcModal");
+    if (!m) return;
+    m.classList.add("is-open");
+    m.setAttribute("aria-hidden","false");
+    document.body.classList.add("modal-open");
+    }
+
+    function closeCalcModal(){
+    const m = document.getElementById("calcModal");
+    if (!m) return;
+    m.classList.remove("is-open");
+    m.setAttribute("aria-hidden","true");
+    document.body.classList.remove("modal-open");
+    }
+
+    document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeCalcModal();
+    });
+</script>
+
+<!-- WhatsApp Contact Button -->
+<a class="whatsapp-link" href="https://wa.me/5521966591901" target="_blank" rel="noopener noreferrer" aria-label="Contato WhatsApp">
+    <img src="WhatsApp.png" alt="WhatsApp" width="90" height="90" />
+    <span style="margin-left: 10px; font-weight: 700; color: #fff;">Enviar missão no WhatsApp</span>
+        <!-- Link configurado para +55 21 96659-1901 -->
+</a>
+
+</body>
+</html>
