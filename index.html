@@ -44,7 +44,6 @@
         </button>
         </div>
     </div>
-
     <div class="mission-group">
         <div class="mission">
             <div class="mission-header" onclick="toggleMission(this.parentElement)">
@@ -54,13 +53,13 @@
             <div class="mission-content">
                 <ul>
                     <li>
-                        <p><strong>(0/25) Matar GvG -</strong> Matar 25 no GvG</p>
+                        <p><strong>(0/25) Matar GvG (Normal) -</strong> Matar 25 no GvG Normal</p> 
                     </li>
                     <li>
                         <p><strong>(0/5) CSN -</strong> Castelo Sombrio Normal</p>
                     </li>
                     <li>
-                        <p><strong>(0/20) Ir GvG -</strong> Ir 20 GvG</p>
+                        <p><strong>(0/20) Casal -</strong> Ir 20 partidas em casal qualquer modo</p><br>
                     </li>
                     <li>
                         <p><strong>(0/5) CDN -</strong> Covil Dragão Normal</p>
@@ -72,7 +71,7 @@
         <div class="mission">
             <div class="mission-header" onclick="toggleMission(this.parentElement)">
                 <span class="new-badge"></span>
-                    Final de Semana II
+                    Final de Semana II
             </div>
             <div class="mission-content">
                 <ul>
@@ -87,6 +86,52 @@
                     </li>
                     <li>
                         <p><strong>(0/5) BD -</strong> Bugou Difícil</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+            <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                <span class="new-badge"></span>
+                    Final de Semana III
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/30) Matar (Equilibrado) -</strong> Matar 30 no GvG Equilibrado</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/3) OBN -</strong> Olimpiadas Boom Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/3) PD -</strong> Galinheiro Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/350) CF -</strong> Fazer 350 Pontos em qualquer horário</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                <span class="new-badge"></span>
+                    Final de Semana IV
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/3) CSN -</strong> Castelo Sombrio Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/3) OBD -</strong> Olimpiadas Boom Difícil</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/35) Matar Torneio -</strong> Matar 35 no GvG em horário de Torneio</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/35) Matar PvP -</strong> Matar 35 no PvP qualquer modo</p>
                     </li>
                 </ul>
             </div>
@@ -139,6 +184,8 @@
             </div>
             <!-- FIM MODELO MISSÃO -->
         </div>
+        </div>
+        <div class="mission-group">
         <div class="mission">
             <div class="mission-header" onclick="toggleMission(this.parentElement)">
                 Trinta (14/01)
@@ -163,7 +210,7 @@
         </div>
         <div class="mission">
             <div class="mission-header" onclick="toggleMission(this.parentElement)">
-                    Segundinha (12/01)
+                Segundinha (12/01)
             </div>
             <div class="mission-content">
             <ul>
@@ -185,7 +232,7 @@
         </div>
         <div class="mission">
         <div class="mission-header" onclick="toggleMission(this.parentElement)">
-                Domingo (12/01)
+            Domingo (12/01)
         </div>
         <div class="mission-content">
             <ul>
@@ -206,10 +253,11 @@
         <!-- FIM MODELO MISSÃO -->
         </div>
     </div>
+    </div>
     <div class="mission-group">
             <div class="mission">
             <div class="mission-header" onclick="toggleMission(this.parentElement)">
-                         F de Semana (10/01)
+                F de Semana (10/01)
             </div>
             <div class="mission-content">
                 <ul>
@@ -374,166 +422,6 @@
     if (e.key === "Escape") closeCalcModal();
     });
 </script>
-<script>
-(() => {
-  const canvas = document.getElementById('fireworks-bg');
-  if (!canvas) return;
-
-  const ctx = canvas.getContext('2d', { alpha: true });
-
-  function resize(){
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize, { passive: true });
-  resize();
-
-  const fireworks = [];
-  const particles = [];
-
-  function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
-
-  // ===== CONFIG (ajustes principais) =====
-  const SPAWN_CHANCE = 0.015;   // menor = menos fogos (mais elegante)
-  const PARTICLES_PER_BOOM = 56; // mais partículas = explosão mais "cheia"
-  const LIFE = 110;             // maior = explosão dura mais
-  const GRAVITY = 0.02;         // menor = cai mais devagar
-  const FADE_DIV = LIFE;        // usado no alpha (não mexer)
-  // ======================================
-
-  function Firework(){
-    this.x = Math.random() * canvas.width;
-    this.y = canvas.height + 30;
-
-    // alvo mais no topo (fogos mais "no céu")
-    this.targetY = Math.random() * canvas.height * 0.45 + 40;
-
-    // subida mais lenta
-    this.vy = 2 + Math.random() * 1.2;
-
-    // cor mais forte
-    this.color = `hsl(${Math.random()*360},100%,70%)`;
-
-    // trilha leve
-    this.trail = [];
-    this.trailMax = 10;
-  }
-
-  Firework.prototype.update = function(){
-    // trilha
-    this.trail.push({ x: this.x, y: this.y });
-    if (this.trail.length > this.trailMax) this.trail.shift();
-
-    this.y -= this.vy;
-
-    if (this.y <= this.targetY){
-      explode(this.x, this.y, this.color);
-      return false;
-    }
-    return true;
-  };
-
-  Firework.prototype.draw = function(){
-    // trilha com brilho
-    for (let i = 0; i < this.trail.length; i++){
-      const t = this.trail[i];
-      const a = (i + 1) / this.trail.length;
-      ctx.globalAlpha = a * 0.35;
-      ctx.fillStyle = this.color;
-      ctx.fillRect(t.x, t.y, 2, 6);
-    }
-
-    // cabeça do foguete
-    ctx.globalAlpha = 1;
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, 2, 7);
-  };
-
-  function Particle(x, y, color){
-    this.x = x; this.y = y;
-
-    const a = Math.random() * Math.PI * 2;
-
-    // velocidade mais lenta
-    const s = Math.random() * 2.5 + 0.6;
-
-    this.vx = Math.cos(a) * s;
-    this.vy = Math.sin(a) * s;
-
-    this.life = LIFE;
-    this.color = color;
-
-    // tamanho ligeiramente maior (mais presença)
-    this.r = Math.random() * 1.6 + 1.2;
-  }
-
-  function explode(x, y, color){
-    for (let i = 0; i < PARTICLES_PER_BOOM; i++){
-      particles.push(new Particle(x, y, color));
-    }
-  }
-
-  function loop(){
-    // limpa sem "fantasma"
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // spawn mais controlado
-    if (Math.random() < SPAWN_CHANCE){
-      fireworks.push(new Firework());
-    }
-
-    // foguetes
-    for (let i = fireworks.length - 1; i >= 0; i--){
-      const f = fireworks[i];
-      if (!f.update()){
-        fireworks.splice(i, 1);
-      } else {
-        f.draw();
-      }
-    }
-
-    // partículas
-    for (let i = particles.length - 1; i >= 0; i--){
-      const p = particles[i];
-
-      p.x += p.vx;
-      p.y += p.vy;
-
-      // gravidade mais suave
-      p.vy += GRAVITY;
-
-      // leve atrito (deixa mais “cinematográfico”)
-      p.vx *= 0.99;
-      p.vy *= 0.99;
-
-      p.life--;
-
-      // brilho melhor (mais "forte")
-      const alpha = clamp(p.life / FADE_DIV, 0, 1);
-      ctx.globalAlpha = alpha;
-
-      ctx.beginPath();
-      ctx.fillStyle = p.color;
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-
-      // halo suave (aumenta impacto)
-      ctx.globalAlpha = alpha * 0.35;
-      ctx.beginPath();
-      ctx.fillStyle = p.color;
-      ctx.arc(p.x, p.y, p.r * 2.2, 0, Math.PI * 2);
-      ctx.fill();
-
-      if (p.life <= 0) particles.splice(i, 1);
-    }
-
-    ctx.globalAlpha = 1;
-    requestAnimationFrame(loop);
-  }
-
-  loop();
-})();
-</script>
 
 <!-- WhatsApp Contact Button -->
 <a class="whatsapp-link" href="https://wa.me/5521966591901" target="_blank" rel="noopener noreferrer" aria-label="Contato WhatsApp">
@@ -544,4 +432,3 @@
 
 </body>
 </html>
-
