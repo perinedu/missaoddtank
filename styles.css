@@ -1606,6 +1606,9 @@ header {
 /* Responsivo */
 @media (max-width: 768px) {
   .news-banner {
+    .news-banner-content {
+    animation: scrollNews 8s linear infinite; /* ← AQUI */
+  }
     height: 36px;
   }
   
