@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>s13 - Surpresas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="titulo.png" type="image/jpeg">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6809594544652238"
+        crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHR64QY9RD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-ZHR64QY9RD');
+    </script>
+</head>
+
+<body>
+    <canvas id="fireworks-bg" aria-hidden="true"></canvas>
+    <div class="bg-space" aria-hidden="true">
+        <span class="stars"></span>
+        <span class="neon-lines"></span>
+    </div>
+    
+    <header>
+        <div class="float-x">
+            <div class="float-y">
+                <img id="titleImage" src="titulo.png" alt="titulo">
+            </div>
+        </div>
+    </header>
+    
+    <!-- Banner de Notícias -->
+    <div class="news-banner">
+        <div class="news-banner-content">
+            <span class="news-icon">🔥</span>
+            <span class="news-text">Está chegando a novidade no servidor em 31/01: Terra Secreta - Sistema de Espírito de Luta - Liberação de Potencial</span>
+            <span class="news-icon">🔥</span>
+            <span class="news-text">Está chegando a novidade no servidor em 31/01: Terra Secreta - Sistema de Espírito de Luta - Liberação de Potencial</span>
+        </div>
+    </div>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar missão..." onkeyup="searchMission()">
+        <button id="calcButton" type="button" onclick="openCalcModal()">
+            Calculadora de Cartas
+        </button>
+    </div>
+    <div class="mission-group">
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                F. de Janeiro (10/02)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/?) - Sem Informações até o momento</span></strong></p>
+                    </li>
+                    <li>
+                        <p><strong>(0/25) Casal -</strong> Ir 25 partidas em casal</p><br>
+                    </li>
+                    <li>
+                        <p><strong>(0/?) - Sem Informações até o momento</span></strong></p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) TPN -</strong> Tribo Piatan Normal</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="mission-group">
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                Surpresa (03/02)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/25) Matar GvG (Normal) -</strong> Matar 25 no GvG Normal</p>
+                    </li>
+                    <li>
+                        <p><strong>(0/?) - Sem Informações até o momento</span></strong></p>
+                    </li>
+                    <li>
+                        <p><strong>(0/?) - Sem Informações até o momento</span></strong></p>
+                    </li>
+                    <li>
+                        <p><strong>(0/5) TPN -</strong> Tribo Piatan Normal</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                Final de Semana (30/01)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/20.000) Pontos Torneio -</strong> Fazer 20k de Pontos no Torneio</p>
+                    </li> 
+                    <li>
+                        <p><strong>(0/30) Casal -</strong> Ir 30 partidas em casal</p><br>
+                    </li>  
+                    <li>
+                        <p><strong>(0/5) FN -</strong> Formigueiro Normal</p>
+                    </li> 
+                    <li>
+                        <p><strong>(0/5) OBN -</strong> Olimpiadas Boom Normal</p>
+                    </li>                
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="calcModal" class="calc-modal" aria-hidden="true">
+        <div class="calc-modal__backdrop" onclick="closeCalcModal()"></div>
+        <div class="calc-modal__panel" role="dialog" aria-modal="true" aria-label="Calculadora - Upgrade de Cartas">
+            <button class="calc-modal__close" type="button" onclick="closeCalcModal()">×</button>
+            <iframe id="calcModalFrame" src="backup.html?mode=modal" class="calc-modal__frame" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Sidebar Toggle Button (Mobile) -->
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Abrir menu lateral">
+        <div class="sidebar-toggle-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <span class="sidebar-toggle-text">Comunidade</span>
+    </button>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar">
+        <button id="sidebarClose" class="sidebar-close" aria-label="Fechar menu">×</button>
+        
+        <div class="sidebar-content">
+            <!-- Título Horários (fixo) -->
+            <h3 class="sidebar-main-title">
+                <span class="sidebar-icon">🕐</span>
+                Horários
+            </h3>
+
+            <!-- CF's - EXPANSÍVEL -->
+            <div class="sidebar-subsection expandable">
+                <div class="sidebar-subsection-header" onclick="toggleSidebarSubsection(this.parentElement)">
+                    <h4>CF's</h4>
+                    <span class="sidebar-toggle-indicator">▼</span>
+                </div>
+                <div class="sidebar-subsection-content">
+                    <ul>
+                        <li><strong>Dragão:</strong> 14h às 15h</li>
+                        <li><strong>Futebol:</strong> 18h às 19h</li>
+                        <li><strong>Vampiro:</strong> 21h às 22h</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Torneio Semanal - EXPANSÍVEL -->
+            <div class="sidebar-subsection expandable">
+                <div class="sidebar-subsection-header" onclick="toggleSidebarSubsection(this.parentElement)">
+                    <h4>Torneio Semanal</h4>
+                    <span class="sidebar-toggle-indicator">▼</span>
+                </div>
+                <div class="sidebar-subsection-content">
+                    <ul>
+                        <li>02h30 - 03h30</li>
+                        <li>09h30 - 10h30</li>
+                        <li>15h30 - 16h30</li>
+                        <li>19h30 - 20h30</li>
+                        <li>22h30 - 23h30</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Torneio de Elite - EXPANSÍVEL -->
+            <div class="sidebar-subsection expandable">
+                <div class="sidebar-subsection-header" onclick="toggleSidebarSubsection(this.parentElement)">
+                    <h4>Torneio de Elite</h4>
+                    <span class="sidebar-toggle-indicator">▼</span>
+                </div>
+                <div class="sidebar-subsection-content">
+                    <ul>
+                        <li><strong>Terça:</strong> Classificação 20h | Mata-Mata 21h30</li>
+                        <li><strong>Sábado:</strong> Classificação 15h | Mata-Mata 16h30</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Torneio Equilibrado - EXPANSÍVEL -->
+            <div class="sidebar-subsection expandable">
+                <div class="sidebar-subsection-header" onclick="toggleSidebarSubsection(this.parentElement)">
+                    <h4>Torneio Equilibrado</h4>
+                    <span class="sidebar-toggle-indicator">▼</span>
+                </div>
+                <div class="sidebar-subsection-content">
+                    <ul>
+                        <li><strong>Classificação:</strong> Quarta 21h30 - 22h30</li>
+                        <li><strong>Chaveamento:</strong> Quinta AO VIVO 21h30</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-divider"></div>
+
+            <!-- Canais Section - SEMPRE VISÍVEL -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <img src="youtube.png" alt="YouTube" class="sidebar-icon-img">
+                    Canais
+                </h3>
+                
+                <ul class="social-links">
+                    <li>
+                        <a href="https://www.youtube.com/@SammyFattal" target="_blank" rel="noopener">
+                            <img src="youtube2.png" alt="YouTube" class="link-icon-img"> Sammy Fattal
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/@meninocouto" target="_blank" rel="noopener">
+                            <img src="youtube2.png" alt="YouTube" class="link-icon-img"> Menino Couto
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/@ELKATHORODDTANK" target="_blank" rel="noopener">
+                            <img src="youtube2.png" alt="YouTube" class="link-icon-img"> Tio Elka
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/@rafaddtank" target="_blank" rel="noopener">
+                            <img src="youtube2.png" alt="YouTube" class="link-icon-img"> Rafa
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/@CEROLDDTank" target="_blank" rel="noopener">
+                            <img src="youtube2.png" alt="YouTube" class="link-icon-img"> CEROL
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Grupos WhatsApp Section - SEMPRE VISÍVEL -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <img src="whatsapp.png" alt="WhatsApp" class="sidebar-icon-img">
+                    Grupos WhatsApp
+                </h3>
+                
+                <ul class="whatsapp-groups">
+                    <li>
+                        <a href="https://chat.whatsapp.com/COPgSfTiaw38oPIQTyJcCt" target="_blank" rel="noopener">
+                            <span class="wa-icon">💲</span> Comércio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://chat.whatsapp.com/JEnT4kAYDunAKrJqJOcm5O" target="_blank" rel="noopener">
+                            <span class="wa-icon">⚔️</span> Missões
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://chat.whatsapp.com/FqemzpNSzElCLOG7JB0PM4" target="_blank" rel="noopener">
+                            <span class="wa-icon">🏆</span> Torneios
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Overlay para fechar sidebar no mobile -->
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <script>
+        function clearInput() {
+            document.getElementById("searchInput").value = "";
+            searchMission();
+        }
+
+        function toggleMission(missionElement) {
+            const content = missionElement.querySelector('.mission-content');
+            if (!content) return;
+            content.style.display = (content.style.display === "none" || content.style.display === "") ? "block" : "none";
+        }
+
+        function searchMission() {
+            const input = document.getElementById("searchInput");
+            if (!input) return;
+            const filter = input.value.toUpperCase();
+            const missions = document.querySelectorAll(".mission");
+
+            for (const mission of missions) {
+                const text = mission.textContent || mission.innerText;
+                const trimmedText = (text || "").toUpperCase().trim();
+
+                const match = trimmedText.includes(filter) || filter === "";
+                mission.classList.toggle("non-matching", !match);
+
+                const missionHeader = mission.querySelector(".mission-header");
+                if (missionHeader) missionHeader.style.backgroundColor = match ? "" : "rgba(220,220,220,0.8)";
+                mission.style.backgroundColor = match ? "" : "rgba(220,220,220,0.8)";
+                mission.style.animation = match ? "pulseBackground 3s infinite ease-in-out, glowingBorder 2s infinite ease-in-out" : "none";
+
+                const content = mission.querySelector('.mission-content');
+                if (content) content.style.display = match ? "block" : "none";
+            }
+        }
+
+        function countVisitsInConsole() {
+            const visitCount = localStorage.getItem('visitCountConsole');
+            const newCount = visitCount ? (parseInt(visitCount, 10) || 0) + 1 : 1;
+            localStorage.setItem('visitCountConsole', newCount);
+            console.log(`Visitas nesta página: ${newCount}`);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            countVisitsInConsole();
+        });
+
+        function openCalcModal() {
+            const m = document.getElementById("calcModal");
+            if (!m) return;
+            m.classList.add("is-open");
+            m.setAttribute("aria-hidden", "false");
+            document.body.classList.add("modal-open");
+        }
+
+        function closeCalcModal() {
+            const m = document.getElementById("calcModal");
+            if (!m) return;
+            m.classList.remove("is-open");
+            m.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("modal-open");
+        }
+
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarClose = document.getElementById('sidebarClose');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function openSidebar() {
+            sidebar.classList.add('is-open');
+            sidebarOverlay.classList.add('is-visible');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('is-open');
+            sidebarOverlay.classList.remove('is-visible');
+            document.body.style.overflow = '';
+        }
+
+        sidebarToggle.addEventListener('click', openSidebar);
+        sidebarClose.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Toggle para subseções expansíveis da sidebar (CF's, Torneios, etc)
+        function toggleSidebarSubsection(subsectionElement) {
+            const content = subsectionElement.querySelector('.sidebar-subsection-content');
+            const indicator = subsectionElement.querySelector('.sidebar-toggle-indicator');
+            
+            if (!content) return;
+            
+            const isExpanding = content.style.display === "none" || content.style.display === "";
+            
+            // Anima o indicador
+            if (indicator) {
+                indicator.style.transform = isExpanding ? "rotate(180deg)" : "rotate(0deg)";
+            }
+            
+            // Anima o conteúdo
+            if (isExpanding) {
+                content.style.display = "block";
+                content.style.maxHeight = "0px";
+                content.style.opacity = "0";
+                
+                content.offsetHeight; // Force reflow
+                
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.style.opacity = "1";
+                
+                setTimeout(() => {
+                    content.style.maxHeight = "none";
+                }, 300);
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.offsetHeight;
+                content.style.maxHeight = "0px";
+                content.style.opacity = "0";
+                
+                setTimeout(() => {
+                    content.style.display = "none";
+                }, 300);
+            }
+        }
+
+        // Fecha com ESC
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                closeCalcModal();
+                if (sidebar.classList.contains('is-open')) {
+                    closeSidebar();
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

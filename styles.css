@@ -1,0 +1,1658 @@
+/* Copia o CSS original como base */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('fundo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+header img {
+    transition: transform 1.3s ease;
+    /* Garante uma transição suave */
+}
+@keyframes fireEffect {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fireEffect {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.new-badge{
+    position:absolute;
+    top:-5px;
+    left:15px;
+    width:50px;
+    height:50px;              /* OU: aspect-ratio: 1 / 1; height:60px; */
+    background:url('novo.png') no-repeat center/contain;
+    z-index:5;
+    animation:pulseBadge 7s infinite ease-in-out;
+    will-change: transform;
+}
+
+/* Efeito de pulsar */
+@keyframes pulseBadge{
+    0%{ transform:scale(1); }
+    50%{ transform:scale(1.1); }
+    100%{ transform:scale(1); }
+}
+
+.mission-header {
+    position: relative;
+    padding-left: 50px; /* Ajuste para não sobrepor o texto */
+}
+
+
+header img:hover {
+    transform: scale(1.1);
+    /* Aumenta a imagem em 10% */
+}
+
+header{
+  display:flex;
+  justify-content:center; /* centraliza horizontalmente */
+  align-items:center;     /* opcional: centraliza verticalmente */
+}
+.destaque-branco p {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Camada X: deriva lenta para os lados */
+.float-x{
+  display:inline-block;
+  animation: driftX 9.5s ease-in-out infinite alternate;
+  animation-delay: -2.1s;          /* dessincroniza p/ parecer natural */
+  will-change: transform;
+}
+
+/* Camada Y: sobe/desce em outro ritmo */
+.float-y{
+  display:inline-block;
+  animation: driftY 11.2s ease-in-out infinite alternate;
+  animation-delay: -3.4s;
+  will-change: transform;
+}
+
+/* Imagem: leve rotação contínua (vai e volta) */
+#titleImage{
+  width:150px; height:auto; display:block; margin:0 auto;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  filter: drop-shadow(0 0 10px rgba(0,153,255,.6));
+  animation: rollZ 13.6s ease-in-out infinite alternate;
+  animation-delay: -1.7s;
+  will-change: transform, filter;
+}
+
+/* Hover: zoom + brilho, sem “quebrar” o balanço */
+#titleImage:hover{
+  transform: scale(1.5);
+  filter: brightness(1.5) drop-shadow(0 0 16px rgba(0,153,255,.85));
+}
+
+/* Keyframes suaves (sem pontos “travados”) */
+@keyframes driftX{
+  0%   { transform: translateX(0) }
+  50%  { transform: translateX(8px) }
+  100% { transform: translateX(-7px) }
+}
+
+@keyframes driftY{
+  0%   { transform: translateY(0) }
+  50%  { transform: translateY(-9px) }
+  100% { transform: translateY(6px) }
+}
+
+@keyframes rollZ{
+  0%   { transform: rotate(0deg) }
+  50%  { transform: rotate(2.2deg) }
+  100% { transform: rotate(-2.6deg) }
+}
+
+/* Acessibilidade: reduz movimento */
+@media (prefers-reduced-motion: reduce){
+  .float-x, .float-y, #titleImage{ animation: none !important; }
+}
+
+article {
+    background-color: #fff;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+article h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+article p {
+    margin-top: 10px;
+}
+
+.mission-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 20px 5%;
+}
+
+.mission {
+    flex-grow: 1;
+    min-width: 200px;
+    max-width: 300px;
+    margin: 10px;
+    border: 2px solid transparent;
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    height: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.mission-header {
+    font-size: 115%;
+    /* Aumentar a fonte em 15% */
+    padding: 10px;
+    background: #003f69;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: bold;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    /* Isto adiciona um efeito de contorno preto ao redor do texto */
+    /* Se você já possui outros estilos para .mission-header, apenas acrescente ou atualize os mencionados acima. */
+}
+
+.mission-content {
+    display: none;
+    padding: 10px;
+    pointer-events: none;
+
+}
+
+.mission-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mission-content li {
+    padding: 5px 0;
+    border-bottom: 1px dashed black;
+}
+
+
+
+
+/* Acessibilidade: reduz movimento se preferido pelo usuário */
+@media (prefers-reduced-motion: reduce) {
+  .mission-group:nth-of-type(7) .mission,
+  .mission-group:nth-of-type(7) .mission::before,
+  .mission-group:nth-of-type(7) .mission .mission-header::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+@keyframes pulseBackground {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+    100% { filter: brightness(1); }
+}
+
+@keyframes glowingBorder {
+    0% { box-shadow: 0 0 6px rgba(255, 255, 0, 0.5); }
+    50% { box-shadow: 0 0 15px rgba(255, 255, 0, 1); }
+    100% { box-shadow: 0 0 6px rgba(255, 255, 0, 0.5); }
+}
+
+
+/* Efeito de brilho suave */
+@keyframes pulseBackground {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+    100% { filter: brightness(1); }
+}
+
+@keyframes glowingBorder {
+    0% { box-shadow: 0 0 5px rgba(255, 102, 0, 0.6); }
+    50% { box-shadow: 0 0 15px rgba(255, 102, 0, 1); }
+    100% { box-shadow: 0 0 5px rgba(255, 102, 0, 0.6); }
+}
+
+.mission-group .mission {
+    animation: pulseBackground 3s infinite ease-in-out, glowingBorder 3s infinite ease-in-out;
+}
+
+.mission:hover {
+    border: 2px solid yellow;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+    /* Dá uma sensação de "levantar" o elemento ao passar o mouse */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Adiciona uma transição suave */
+    filter: brightness(1.4);
+    /* Clareia o elemento em 20% */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    /* Adiciona uma transição suave para o efeito de brilho */
+}
+
+.search-container {
+    text-align: center;
+    margin: 20px;
+}
+
+#searchInput,
+#searchButton {
+    height: 40px;
+    /* Definir a altura que você deseja */
+    box-sizing: border-box;
+    /* Isto garante que padding e borda são incluídos na altura */
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid white; /* Borda branca */
+    /* Arredonda os cantos */
+}
+
+#searchInput {
+    padding-left: 10px;
+    /* Espaçamento interno à esquerda para o texto */
+    border: 1px solid #ccc;
+    /* Uma borda simples */
+    font-size: 16px;
+}
+
+#searchButton {
+    border: none;
+    /* Elimina a borda padrão do botão */
+    background-color: #6a00ff;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+#searchButton:hover {
+    background-color: #4600a8;
+}
+
+
+.mission.non-matching .mission-header {
+    background-color: rgba(220, 220, 220, 0.8);
+}
+
+.mission-content-item.non-matching {
+    background-color: rgba(220, 220, 220, 0.8);
+}
+
+
+@media (max-width: 768px) {
+    .mission {
+        /* Estilos para telas menores aqui */
+        min-width: 100%;
+        margin: 5px 0;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.whatsapp-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Animação de Pulsação Elástica */
+@keyframes elastic-pulse {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.2); }
+    60% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+/* Animação de Vibração Mais Forte */
+@keyframes strong-vibrate {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(-6deg); }
+    30% { transform: rotate(6deg); }
+    45% { transform: rotate(-6deg); }
+    60% { transform: rotate(6deg); }
+    75% { transform: rotate(-6deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Combinação das animações */
+.whatsapp-link img {
+    height: 90px;
+    animation: 
+        elastic-pulse 2s infinite ease-in-out,
+        strong-vibrate 1.5s infinite ease-in-out;
+}
+
+
+.copy-button-wrapper {
+    flex-basis: 100%;
+    /* Faz com que ocupe toda a largura disponível, forçando o que estiver após a div a ir para a próxima linha */
+    text-align: center;
+    /* Centraliza o botão horizontalmente */
+}
+
+.mission-group button {
+    /* ... o resto do seu estilo para o botão ... */
+    display: inline-block;
+    /* Faz com que o botão seja tratado como um bloco, mas não ocupe toda a largura */
+}
+
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.selection-box {
+    flex: 1;
+    background-color: #007BFF;
+    color: black;
+    text-align: center;
+    padding: 30px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    margin: 0 10px;
+    /* Espaçamento entre as caixas */
+}
+
+.selection-box:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos adicionais para a página */
+.whatsapp-link {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-link img {
+        width: 80px; /* Reduz um pouco mais o tamanho do ícone */
+        height: auto; /* Mantém a proporção da imagem */
+    }
+
+    .whatsapp-link {
+        top: 15px; /* Posiciona mais para cima */
+        left: -5px; /* Move mais para a esquerda */
+        right: unset; /* Remove o alinhamento à direita */
+        bottom: unset; /* Remove o posicionamento inferior */
+        position: absolute; /* Usa posição absoluta para posicionamento */
+        z-index: 1000; /* Garante que fique acima de outros elementos */
+    }
+
+    #titleImage {
+        margin-left: auto; /* Empurra o título para a direita */
+    }
+}
+
+/* Mostra o texto sutil no topo da descrição QUANDO ABERTO */
+.mission-content{ position: relative; }
+
+/* Texto igual ao anterior, só que ancorado na área da descrição */
+.mission-content::before{
+  content: "missaoddtank.com";
+  position: absolute;
+  left: 12px; right: 12px; top: 2;     /* topo da descrição */
+  text-align: right;
+  font: 700 10px/1 Arial, sans-serif;
+  color: #000; 
+  opacity: .99;
+  pointer-events: none;
+  margin-top: -5px;
+}
+
+/* Reserva espaço para não sobrepor a primeira linha da missão */
+.mission:has(.mission-content[style*="display: block"]) .mission-content{
+  padding-top: 22px !important;
+}
+
+/* 🔒 Congela animações/transformações apenas quando ABERTO */
+.mission:has(.mission-content[style*="display: block"]){
+  animation:none !important;
+  transform:none !important;
+  filter:none !important;
+}
+.mission:has(.mission-content[style*="display: block"]) *{
+  animation:none !important;   /* bloqueia “respiração” herdada */
+}
+.mission:has(.mission-content[style*="display: block"]):hover{
+  transform:none !important;
+  filter:none !important;
+  box-shadow:0 2px 4px rgba(0,0,0,.12); /* opcional, estável */
+}
+
+.clickfx {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  z-index: 999999;
+  will-change: transform;
+  transform: translate(-9999px, -9999px) rotate(0deg);
+  filter: drop-shadow(0 0 10px rgba(255, 210, 120, .75));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clickfx { display: none !important; }
+}
+
+.clickfx-impact{
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  z-index: 1000000;
+  margin-top: -30px;
+  margin-left: -20px;
+}
+.clickfx-impact.is-on {
+  opacity: 1;
+  transform: translate(var(--x), var(--y)) scale(1.05);
+  transition: transform 180ms ease-out, opacity 180ms ease-out;
+}
+
+.clickfx-impact.is-off {
+  opacity: 0;
+  transform: translate(var(--x), var(--y)) scale(1.25);
+  transition: transform 220ms ease-in, opacity 220ms ease-in;
+}
+
+/* modal */
+.calc-modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 999999;
+}
+.calc-modal.is-open{ display: block; }
+
+.calc-modal__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(2px);
+}
+
+.calc-modal__panel{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+
+  width: min(92vw, 560px);
+  height: min(88vh, 520px);
+
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0,0,0,.65);
+}
+
+/* botão X alinhado à barra do título da calculadora */
+.calc-modal__close{
+  position: absolute;
+  right: 10px;
+  margin-top: 20px;          /* DESKTOP */
+  margin-right: 10px;
+  z-index: 10;
+}
+
+/* MOBILE: desce um pouco mais */
+@media (max-width: 768px){
+  .calc-modal__close{
+    margin-top: 40px;
+  }
+}
+
+/* MOBILE: desce um pouco mais */
+@media (max-width: 1028px){
+  .calc-modal__close{
+    margin-top: 40px;
+    margin-right: 20px;
+  }
+}
+
+.calc-modal__frame{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  overflow: hidden; /* evita scrollbar “interna” */
+}
+
+.calc-modal__frame{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* botão fechar */
+.calc-modal__close{
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  width: 34px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: linear-gradient(#f06c6c, #b11919);
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+  z-index: 2;
+}
+
+body.modal-open{
+  overflow: hidden;
+}
+
+@media (min-width: 1024px){
+  .calc-modal__panel{
+    width: 540px;
+    height: 470px;
+  }
+}
+
+
+/* Botão da calculadora — área maior */
+#calcButton{
+  height: 48px;                 /* maior que os outros */
+  margin-left: 10px;
+  padding: 0 26px;              /* área horizontal maior */
+
+  border-radius: 10px;
+  border: 2px solid #2b1608;
+
+  background: linear-gradient(#7c4a17, #4a260b);
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+
+  cursor: pointer;
+  position: relative;
+
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+/* hover / active */
+#calcButton:hover{
+  filter: brightness(1.2);
+}
+#calcButton:active{
+  transform: translateY(1px);
+}
+
+/* Barra de busca responsiva (corrige mobile) */
+.search-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Desktop: mantém tudo na mesma linha */
+#searchInput{
+  width: 360px;
+  max-width: 60vw;
+}
+
+/* Mobile: input 100% e botões embaixo */
+@media (max-width: 768px){
+  .search-container{
+    padding: 0 12px;
+  }
+
+  #searchInput{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #searchButton,
+  #calcButton{
+    flex: 1 1 140px;   /* divide a linha */
+    width: auto;
+    margin-left: 0;    /* remove o offset do desktop */
+    height: 44px;      /* confortável no toque */
+  }
+}
+
+/* ===== BOTÃO CALCULADORA – IDENTIDADE FUTURISTA (SEM MUDAR FORMATO) ===== */
+#calcButton{
+  font-family: 'Oxanium', system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .8px; /* levemente menor que Orbitron */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+
+  /* mantém o formato (altura/borda/radius) do que você já usa */
+  border: 2px solid rgba(120, 255, 255, .35);
+  border-radius: 10px;
+
+  /* nova paleta futurista */
+  background: linear-gradient(135deg, rgba(10,16,28,.92), rgba(18,32,58,.92));
+  color: rgba(230, 255, 255, .95);
+
+  box-shadow:
+    0 0 0 1px rgba(120,255,255,.15) inset,
+    0 10px 26px rgba(0,0,0,.35),
+    0 0 18px rgba(80,255,255,.18);
+
+  text-shadow: none;
+  letter-spacing: .4px;
+}
+
+/* brilho “holográfico” que passa */
+#calcButton::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(120,255,255,.20) 35%,
+    rgba(180,120,255,.18) 50%,
+    rgba(120,255,255,.20) 65%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  animation: calcHoloSweep 2.8s ease-in-out infinite;
+  pointer-events:none;
+  mix-blend-mode: screen;
+}
+
+/* scanlines sutis (futurista) */
+#calcButton::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.08) 0px,
+      rgba(255,255,255,.08) 1px,
+      transparent 2px,
+      transparent 6px
+    );
+  opacity: .22;
+  pointer-events:none;
+}
+
+/* hover: ativa “neon” */
+#calcButton:hover{
+  border-color: rgba(120,255,255,.65);
+  box-shadow:
+    0 0 0 1px rgba(120,255,255,.22) inset,
+    0 12px 28px rgba(0,0,0,.38),
+    0 0 26px rgba(80,255,255,.30);
+  filter: brightness(1.08);
+}
+
+/* clique */
+#calcButton:active{
+  transform: translateY(1px);
+  filter: brightness(1.02);
+}
+
+/* animação do sweep */
+@keyframes calcHoloSweep{
+  0%   { transform: translateX(-120%); opacity: .0; }
+  15%  { opacity: .9; }
+  55%  { opacity: .9; }
+  100% { transform: translateX(120%); opacity: .0; }
+}
+
+/* acessibilidade */
+@media (prefers-reduced-motion: reduce){
+  #calcButton::before{ animation: none; opacity: .0; }
+}
+
+/* ===== MISSÕES – IDENTIDADE FUTURISTA (MESMO ESTILO DOS BOTÕES) ===== */
+
+/* Fonte global das missões */
+.mission, .mission-header{
+  font-family: 'Oxanium', system-ui, sans-serif;
+}
+
+/* Card da missão */
+.mission{
+  position: relative;
+  overflow: hidden;
+
+  border: 2px solid rgba(120,255,255,.22) !important;
+  background: linear-gradient(135deg, rgba(10,16,28,.78), rgba(18,32,58,.78)) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(120,255,255,.10) inset,
+    0 10px 26px rgba(0,0,0,.28),
+    0 0 18px rgba(80,255,255,.12) !important;
+}
+
+/* Scanlines sutis no card */
+.mission::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.07) 0px,
+      rgba(255,255,255,.07) 1px,
+      transparent 2px,
+      transparent 7px
+    );
+  opacity: .18;
+  pointer-events:none;
+}
+
+/* Header futurista */
+.mission-header{
+  position: relative;
+  overflow: hidden;
+
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+
+  background: linear-gradient(135deg, rgba(10,16,28,.92), rgba(18,32,58,.92)) !important;
+  border-bottom: 2px solid rgba(120,255,255,.18) !important;
+
+  color: rgba(230,255,255,.95) !important;
+  text-shadow: 0 0 6px rgba(120,255,255,.18);
+}
+
+/* Varredura holográfica no header */
+.mission-header::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(120,255,255,.18) 35%,
+    rgba(180,120,255,.16) 50%,
+    rgba(120,255,255,.18) 65%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  animation: missionHoloSweep 3.1s ease-in-out infinite;
+  pointer-events:none;
+  mix-blend-mode: screen;
+}
+
+/* Hover mais “neon” */
+.mission:hover{
+  border-color: rgba(120,255,255,.45) !important;
+  box-shadow:
+    0 0 0 1px rgba(120,255,255,.16) inset,
+    0 12px 28px rgba(0,0,0,.34),
+    0 0 26px rgba(80,255,255,.20) !important;
+  filter: brightness(1.06);
+}
+
+@keyframes missionHoloSweep{
+  0%   { transform: translateX(-120%); opacity: 0; }
+  15%  { opacity: .9; }
+  55%  { opacity: .9; }
+  100% { transform: translateX(120%); opacity: 0; }
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce){
+  .mission-header::before{ animation: none; opacity: 0; }
+}
+/* ===== MISSÕES – TEXTO 100% BRANCO ===== */
+
+/* texto geral da missão */
+.mission,
+.mission *{
+  color: #ffffff !important;
+}
+
+/* títulos */
+.mission-header{
+  color: #ffffff !important;
+  text-shadow: 0 0 6px rgba(120,255,255,.25);
+}
+
+/* listas e descrições */
+.mission-content,
+.mission-content p,
+.mission-content li,
+.mission-content strong{
+  color: #ffffff !important;
+}
+
+/* links dentro das missões */
+.mission a,
+.mission a:visited,
+.mission a:hover,
+.mission a:active{
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+/* indicativo do site (missaoddtank.com) */
+.mission-content::before{
+  color: #ffffff !important;
+  opacity: .85;
+}
+
+.mission-group:nth-of-type(5) .mission{
+  border-color: rgb(255, 0, 0) !important;
+}
+.mission-group:nth-of-type(4) .mission{
+  border-color: rgb(12, 158, 216) !important;
+}
+.mission-group:nth-of-type(3) .mission{
+  border-color: rgba(238, 255, 0) !important;
+}
+
+/* linha divisória entre itens */
+.mission-content li{
+  border-bottom: 1px dashed rgba(129, 126, 126, 0.85) !important;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+
+/* remove a linha do último item */
+.mission-content li:last-child{
+  border-bottom: none !important;
+}
+
+.mission-group:nth-of-type(6) .mission{
+  border-color: rgb(0, 168, 8) !important;
+}
+
+/* ===== BOTÃO CALCULADORA – COR ÂMBAR (DIFERENTE DAS MISSÕES) ===== */
+#calcButton{
+  border-color: #ffcc55 !important;
+  color: #fff2cc !important;
+
+  background: linear-gradient(
+    180deg,
+    #ff1e00,
+    #810000
+  ) !important;
+
+  box-shadow:
+    0 0 12px rgba(255,204,85,.55),
+    0 0 24px rgba(255,204,85,.35),
+    inset 0 0 12px rgba(255,204,85,.18) !important;
+}
+
+/* pulso dourado */
+#calcButton::before{
+  box-shadow: 0 0 18px rgba(255,204,85,.65) !important;
+}
+
+/* hover */
+#calcButton:hover{
+  box-shadow:
+    0 0 18px rgba(255,204,85,.85),
+    0 0 36px rgba(255,204,85,.55),
+    inset 0 0 16px rgba(255,204,85,.25) !important;
+}
+
+/* Canvas de fogos ao fundo */
+#fireworks-bg{
+  position: fixed;
+  inset: 0;
+  z-index: 0;                 /* fica atrás de tudo */
+  pointer-events: none;        /* não interfere em cliques */
+  background: transparent;
+}
+
+/* Garante que o conteúdo fique acima */
+body > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== SIDEBAR - HORÁRIOS E COMUNIDADE ===== */
+
+/* Botão Toggle (Mobile apenas) */
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999998;
+  min-width: 60px;
+  height: 50px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 2px solid rgba(120,255,255,.45);
+  background: linear-gradient(135deg, rgba(10,16,28,.95), rgba(18,32,58,.95));
+  box-shadow:
+    0 0 20px rgba(80,255,255,.25),
+    inset 0 0 10px rgba(120,255,255,.1);
+  cursor: pointer;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  font-family: 'Oxanium', system-ui, sans-serif;
+}
+
+.sidebar-toggle-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.sidebar-toggle-icon span {
+  width: 24px;
+  height: 2px;
+  background: rgba(230,255,255,.95);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(120,255,255,.5);
+}
+
+.sidebar-toggle-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(230,255,255,.95);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-shadow: 0 0 8px rgba(120,255,255,.5);
+  white-space: nowrap;
+}
+
+.sidebar-toggle:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 30px rgba(80,255,255,.4),
+    inset 0 0 15px rgba(120,255,255,.15);
+}
+
+.sidebar-toggle:hover .sidebar-toggle-icon span {
+  box-shadow: 0 0 12px rgba(120,255,255,.8);
+}
+
+.sidebar-toggle:hover .sidebar-toggle-text {
+  text-shadow: 0 0 12px rgba(120,255,255,.8);
+}
+
+@media (max-width: 1024px) {
+  .sidebar-toggle {
+    display: flex;
+  }
+}
+
+/* Animação do hamburguer quando sidebar está aberta */
+.sidebar.is-open ~ .sidebar-toggle .sidebar-toggle-icon span:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+
+.sidebar.is-open ~ .sidebar-toggle .sidebar-toggle-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.sidebar.is-open ~ .sidebar-toggle .sidebar-toggle-icon span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+/* Sidebar Container */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0; /* MUDOU: agora à esquerda */
+  width: 320px;
+  height: 100vh;
+  background: linear-gradient(180deg, rgba(10,16,28,.98), rgba(18,32,58,.98));
+  border-right: 2px solid rgba(120,255,255,.25); /* MUDOU: borda à direita */
+  box-shadow: 5px 0 30px rgba(0,0,0,.5); /* MUDOU: sombra para a direita */
+  z-index: 999999;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Oxanium', system-ui, sans-serif;
+}
+
+/* Desktop: sempre visível */
+@media (min-width: 1025px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* Mobile: escondida por padrão */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%); /* MUDOU: esconde para a esquerda */
+  }
+  
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+  
+  .sidebar-toggle {
+    display: flex;
+  }
+}
+
+/* Botão fechar (Mobile) */
+.sidebar-close {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 2px solid rgba(255,100,100,.5);
+  background: linear-gradient(135deg, rgba(220,50,50,.9), rgba(180,30,30,.9));
+  color: #fff;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(220,50,50,.3);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .sidebar-close {
+    display: block;
+  }
+}
+
+.sidebar-close:hover {
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 6px 16px rgba(220,50,50,.5);
+}
+
+/* Overlay (Mobile) */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  backdrop-filter: blur(3px);
+  z-index: 999998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.is-visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@media (min-width: 1025px) {
+  .sidebar-overlay {
+    display: none;
+  }
+}
+
+/* Conteúdo da Sidebar */
+.sidebar-content {
+  padding: 60px 20px 20px 20px;
+}
+
+@media (min-width: 1025px) {
+  .sidebar-content {
+    padding: 20px;
+  }
+}
+
+/* Scrollbar customizada */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(10,16,28,.5);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(120,255,255,.3);
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(120,255,255,.5);
+}
+
+/* Seções */
+.sidebar-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(120,255,255,.15);
+}
+
+.sidebar-section:last-child {
+  border-bottom: none;
+}
+
+/* Títulos principais */
+.sidebar-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(230,255,255,.95);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(120,255,255,.3);
+  text-shadow: 0 0 10px rgba(120,255,255,.4);
+}
+
+.sidebar-icon {
+  font-size: 22px;
+  filter: drop-shadow(0 0 8px rgba(120,255,255,.6));
+}
+
+/* Subseções */
+.sidebar-subsection {
+  margin-bottom: 20px;
+}
+
+.sidebar-subsection h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(180,220,255,.9);
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-subsection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-subsection li {
+  padding: 6px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(200,220,240,.85);
+  border-bottom: 1px dashed rgba(120,255,255,.15);
+}
+
+.sidebar-subsection li:last-child {
+  border-bottom: none;
+}
+
+.sidebar-subsection strong {
+  color: rgba(230,255,255,.95);
+  font-weight: 700;
+}
+
+/* Links sociais */
+.social-links a,
+.whatsapp-groups a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(200,220,240,.9);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.social-links a:hover,
+.whatsapp-groups a:hover {
+  background: rgba(120,255,255,.1);
+  color: rgba(230,255,255,1);
+  transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(120,255,255,.2);
+}
+
+.yt-icon {
+  font-size: 14px;
+  filter: drop-shadow(0 0 6px rgba(255,50,50,.6));
+}
+
+.wa-icon {
+  font-size: 16px;
+  filter: drop-shadow(0 0 6px rgba(37,211,102,.6));
+}
+
+/* Animação de entrada */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.sidebar.is-open {
+  animation: slideInLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ajuste do conteúdo principal no desktop */
+@media (min-width: 1025px) {
+  body {
+    margin-left: 320px; /* MUDOU: margem à esquerda */
+    margin-right: 0;
+  }
+  
+  .whatsapp-link {
+    right: 20px; /* Mantém WhatsApp à direita normal */
+  }
+}
+
+/* Efeito holográfico na sidebar */
+.sidebar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(120,255,255,.02) 0px,
+    rgba(120,255,255,.02) 1px,
+    transparent 2px,
+    transparent 6px
+  );
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .sidebar-toggle,
+  .sidebar-overlay {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ===== FIM DA SIDEBAR ===== */
+
+/* ===== SEÇÕES EXPANSÍVEIS DA SIDEBAR ===== */
+
+/* Título principal (Horários) - sempre visível */
+.sidebar-main-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(230,255,255,.95);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 15px 0;
+  padding: 0 12px 12px 12px;
+  border-bottom: 2px solid rgba(120,255,255,.3);
+  text-shadow: 0 0 10px rgba(120,255,255,.4);
+}
+
+/* Subseção expansível (CF's, Torneios, etc) */
+.sidebar-subsection.expandable {
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(120,255,255,.03);
+  border: 1px solid rgba(120,255,255,.1);
+}
+
+.sidebar-subsection-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.sidebar-subsection-header:hover {
+  background: rgba(120,255,255,.1);
+}
+
+.sidebar-subsection-header h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(180,220,255,.95);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+
+/* Indicador de toggle (setinha) */
+.sidebar-toggle-indicator {
+  font-size: 12px;
+  color: rgba(230,255,255,.8);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  margin-left: 10px;
+}
+
+/* Conteúdo expansível */
+.sidebar-subsection-content {
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 12px 12px 12px;
+}
+
+.sidebar-subsection-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-subsection-content li {
+  padding: 6px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(200,220,240,.85);
+  border-bottom: 1px dashed rgba(120,255,255,.15);
+}
+
+.sidebar-subsection-content li:last-child {
+  border-bottom: none;
+}
+
+.sidebar-subsection-content strong {
+  color: rgba(230,255,255,.95);
+  font-weight: 700;
+}
+
+/* Divisória entre seções */
+.sidebar-divider {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(120,255,255,.3) 50%,
+    transparent 100%
+  );
+  margin: 25px 0;
+}
+
+/* Remove cursor pointer dos itens internos */
+.sidebar-subsection-content * {
+  cursor: default;
+}
+
+/* ===== FIM SEÇÕES EXPANSÍVEIS ===== */
+
+/* ===== ÍCONES COM IMAGENS ===== */
+
+/* Ícone nos títulos principais (YouTube e WhatsApp) */
+.sidebar-icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(120,255,255,.4));
+}
+
+/* Ícone nos links (youtube2.png) */
+.link-icon-img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  margin-right: 8px;
+  filter: drop-shadow(0 0 6px rgba(255,50,50,.5));
+  transition: filter 0.3s ease;
+}
+
+.social-links a:hover .link-icon-img {
+  filter: drop-shadow(0 0 10px rgba(255,50,50,.8));
+}
+
+/* Ajuste dos ícones emoji do WhatsApp */
+.wa-icon {
+  font-size: 16px;
+  margin-right: 8px;
+  display: inline-block;
+  filter: drop-shadow(0 0 4px rgba(37,211,102,.5));
+}
+
+/* ===== FIM ÍCONES COM IMAGENS ===== */
+
+/* ===== BANNER DE NOTÍCIAS ===== */
+
+.news-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(139,0,0,.92), rgba(180,20,20,.92)); /* Vermelho escuro */
+  border-bottom: 2px solid rgba(255,80,80,.4);
+  overflow: hidden;
+  z-index: 999998; /* Abaixo da sidebar (999999) mas acima do resto */
+  box-shadow: 
+    0 4px 16px rgba(0,0,0,.5),
+    0 0 20px rgba(255,50,50,.15),
+    inset 0 1px 0 rgba(255,100,100,.1);
+}
+
+/* Efeito holográfico no banner - scanlines horizontais */
+.news-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    rgba(255,120,120,.05) 1px,
+    transparent 2px,
+    transparent 8px
+  );
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Brilho animado vermelho */
+.news-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,100,100,.25) 50%,
+    transparent 100%
+  );
+  animation: newsShine 4s infinite;
+}
+
+@keyframes newsShine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.news-banner-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  white-space: nowrap;
+  animation: scrollNews 35s linear infinite;
+  padding: 0 20px;
+  will-change: transform;
+}
+
+@keyframes scrollNews {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.news-text {
+  font-family: 'Oxanium', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255,230,230,.95);
+  text-shadow: 
+    0 0 10px rgba(255,100,100,.5),
+    0 2px 4px rgba(0,0,0,.7);
+  letter-spacing: 0.8px;
+  padding: 0 40px;
+  text-transform: uppercase;
+}
+
+.news-icon {
+  font-size: 18px;
+  filter: drop-shadow(0 0 10px rgba(255,150,0,.9));
+  animation: pulseIcon 2s ease-in-out infinite;
+}
+
+@keyframes pulseIcon {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(255,150,0,.9));
+  }
+  50% {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 15px rgba(255,200,0,1));
+  }
+}
+
+/* Ajuste do conteúdo para não ficar atrás do banner */
+header {
+  margin-top: 40px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .news-banner {
+    height: 36px;
+  }
+  
+  .news-text {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  
+  .news-icon {
+    font-size: 16px;
+  }
+  
+  header {
+    margin-top: 36px;
+  }
+}
+
+/* Ajuste para desktop com sidebar - banner começa DEPOIS da sidebar */
+@media (min-width: 1025px) {
+  .news-banner {
+    left: 320px; /* Começa depois da sidebar */
+    width: calc(100% - 320px); /* Largura reduzida */
+  }
+  
+  /* Remove padding extra do conteúdo */
+  .news-banner-content {
+    padding-left: 20px; /* Padding normal */
+  }
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .news-banner-content {
+    animation: scrollNewsSlow 60s linear infinite;
+  }
+  
+  @keyframes scrollNewsSlow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
+/* ===== FIM BANNER DE NOTÍCIAS ===== */
+
+/* Mobile: ajuste do botão Comunidade para não pegar no banner */
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    top: 50px !important; /* 36px banner + 14px espaço */
+  }
+}
