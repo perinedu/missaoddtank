@@ -34,22 +34,37 @@
             </div>
         </div>
     </header>
-    
-    <!-- Banner de Notícias -->
-    <div class="news-banner">
-        <div class="news-banner-content">
-            <span class="news-icon">🔥</span>
-            <span class="news-text">Está chegando a novidade no servidor em 31/01: Terra Secreta - Sistema de Espírito de Luta - Liberação de Potencial</span>
-            <span class="news-icon">🔥</span>
-            <span class="news-text">Está chegando a novidade no servidor em 31/01: Terra Secreta - Sistema de Espírito de Luta - Liberação de Potencial</span>
-        </div>
-    </div>
-    
+        
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Buscar missão..." onkeyup="searchMission()">
         <button id="calcButton" type="button" onclick="openCalcModal()">
             Calculadora de Cartas
         </button>
+    </div>
+    <div class="mission-group">
+        <div class="mission">
+            <div class="mission-header" onclick="toggleMission(this.parentElement)">
+                <span class="new-badge"></span>
+                    Sexta (21/02)
+            </div>
+            <div class="mission-content">
+                <ul>
+                    <li>
+                        <p><strong>(0/20) Ganhar PvP (Equilibrado) -</strong> Ganhar 20 PvP Equilibrado</p>
+                    </li> 
+                    <li>
+                        <p><strong>(0/?) - Sem Informações até o momento</span></strong></p>
+                    </li>  
+                    <li>
+                        <p><strong>(0/25) Ir GvG (Normal) -</strong> Ir 25 GvG Normal</p>
+                    </li> 
+                    <li>
+                        <p><strong>(0/?) - Sem Informações até o momento</span></strong></p>
+                    </li>                
+                </ul>
+            </div>
+            <!-- FIM MODELO MISSÃO -->
+        </div>
     </div>
     <div class="mission-group">
         <div class="mission">
@@ -70,51 +85,6 @@
                     <li>
                         <p><strong>(0/5) TPN -</strong> Tribo Piatan Normal</p>
                     </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="mission-group">
-        <div class="mission">
-            <div class="mission-header" onclick="toggleMission(this.parentElement)">
-                Surpresa (03/02)
-            </div>
-            <div class="mission-content">
-                <ul>
-                    <li>
-                        <p><strong>(0/25) Matar GvG (Normal) -</strong> Matar 25 no GvG Normal</p>
-                    </li>
-                    <li>
-                        <p><strong>(0/5) CDD -</strong> Covil Dragão Difícil</p>
-                    </li>
-                    <li>
-                        <p><strong>(0/250) CF Futebol (14h) -</strong> Fazer 250 Pontos no CF Futebol</p>
-                    </li>
-                    <li>
-                        <p><strong>(0/5) TPN -</strong> Tribo Piatan Normal</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="mission">
-            <div class="mission-header" onclick="toggleMission(this.parentElement)">
-                Final de Semana (30/01)
-            </div>
-            <div class="mission-content">
-                <ul>
-                    <li>
-                        <p><strong>(0/20.000) Pontos Torneio -</strong> Fazer 20k de Pontos no Torneio</p>
-                    </li> 
-                    <li>
-                        <p><strong>(0/30) Casal -</strong> Ir 30 partidas em casal</p><br>
-                    </li>  
-                    <li>
-                        <p><strong>(0/5) FN -</strong> Formigueiro Normal</p>
-                    </li> 
-                    <li>
-                        <p><strong>(0/5) OBN -</strong> Olimpiadas Boom Normal</p>
-                    </li>                
                 </ul>
             </div>
         </div>
