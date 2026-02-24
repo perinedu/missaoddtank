@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ATUALIZADO ATÉ NV 35!</title>
+  <title>ATUALIZADO ATÉ NV 37!</title>
   <style>
     :root{
       --w: 360px;
@@ -335,7 +335,7 @@
 <body>
   <div class="window" role="dialog" aria-label="Upgrade de Cartas">
     <div class="titlebar">
-      <div class="title">CALCULADORA - 🆕 ATÉ NV 35!</div>
+      <div class="title">CALCULADORA - 🆕 ATÉ NV 37!</div>
     </div>
 
     <div class="content">
@@ -367,7 +367,7 @@
             class="ghost-input"
             type="number"
             min="0"
-            max="35"
+            max="37"
             value="0" />
         </div>
       </div>
@@ -399,7 +399,7 @@
 
     desiredInput.addEventListener('input', () => {
         let v = parseInt(desiredInput.value || '0', 10);
-        if (v > 35) v = 35;
+        if (v > 37) v = 37;
         if (v < 0) v = 0;
         desiredInput.value = v;
     });
@@ -418,8 +418,8 @@
         if (lvl === 29)             return 1250;  // 29→30
         if (lvl >= 30 && lvl <= 31) return 1500;  // 30→31 e 31→32 (2 níveis)
         if (lvl === 32)             return 2000;  // 32→33
-        if (lvl >= 33 && lvl <= 34) return 2500;  // 33→34 e 34→35 (2 níveis)
-        return 0; // lvl 35+ (não há próximo up)
+        if (lvl >= 33 && lvl <= 36) return 2500;  // 33→34 ... 36→37 (4 níveis)
+        return 0; // lvl 37+ (não há próximo up)
     }
 
     function multProgressoPorAlma(lvl){
@@ -442,7 +442,7 @@
 
         while (lvl < lvlDesejado) {
             const pmax = progressoMaxPorLvl(lvl);
-            if (pmax <= 0) break; // travou em 35+
+            if (pmax <= 0) break; // travou em 37+
 
             const falta = Math.max(0, pmax - prog);
             const mult = multProgressoPorAlma(lvl);
@@ -476,7 +476,7 @@
         barFill.style.width = pct.toFixed(1) + "%";
 
         // Nível desejado
-        const lvlDesejado = clamp(parseInt(desiredInput.value || "0", 10), 0, 35);
+        const lvlDesejado = clamp(parseInt(desiredInput.value || "0", 10), 0, 37);
         desiredInput.value = lvlDesejado;
 
         // Cartas necessárias (arredondando pra cima para inteiro)
@@ -484,7 +484,7 @@
         const cartasInt = Math.ceil(cartas);
 
         randNum.textContent = (pmax <= 0 && lvlDesejado > lvlAtual)
-            ? "—" // não calcula acima de 35 (sem custo definido)
+            ? "—" // não calcula acima de 37 (sem custo definido)
             : String(cartasInt);
     }
 
@@ -521,10 +521,10 @@
     const barLabel = ensureBarLabel();
 
     function updateProgress(){
-        const lvl = clamp(parseInt(lvlInput.value || "0", 10), 0, 35);
+        const lvl = clamp(parseInt(lvlInput.value || "0", 10), 0, 37);
         lvlInput.value = lvl;
 
-        const isMax = (lvl >= 35);
+        const isMax = (lvl >= 37);
 
         if (isMax){
             // bloqueia
@@ -578,7 +578,7 @@
     });
     
     desiredInput.addEventListener('input', () => {
-        let v = clamp(parseInt(desiredInput.value || "0", 10), 0, 35);
+        let v = clamp(parseInt(desiredInput.value || "0", 10), 0, 37);
         desiredInput.value = v;
         updateAll();
     });
