@@ -49,7 +49,7 @@ header img {
 
 .mission-header {
     position: relative;
-    padding-left: 50px; /* Ajuste para não sobrepor o texto */
+    text-align: center;
 }
 
 
