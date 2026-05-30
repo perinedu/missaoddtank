@@ -143,9 +143,9 @@ window.MISSAO = {
       "fim": "31-05-2026",
       "tarefas": [
         {
-          "nome": "NÃO DESCOBERTA",
+          "nome": "IR TORNEIO 2X2",
           "sigla": "",
-          "qtd": "??"
+          "qtd": "10"
         },
         {
           "nome": "GALINHEIRO DIFÍCIL",
