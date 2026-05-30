@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>s13 - Missões Surpresas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="titulo.png" type="image/png">
+</head>
+<body class="tema-s13">
+    <canvas id="fireworks-bg" aria-hidden="true"></canvas>
+    <div class="bg-space" aria-hidden="true"><span class="stars"></span><span class="neon-lines"></span></div>
+
+    <div class="srv-float">
+        <a class="to-s12" href="s12.html">S12</a>
+        <a class="to-s1" href="s1.html">S1</a>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar missão..." onkeyup="searchMission()">
+    </div>
+
+    <div class="group-box">
+        <div class="mission-group" id="missoes"></div>
+    </div>
+
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Abrir menu lateral">
+        <div class="sidebar-toggle-icon"><span></span><span></span><span></span></div>
+        <span class="sidebar-toggle-text">Horários</span>
+    </button>
+
+    <aside id="sidebar" class="sidebar">
+        <button id="sidebarClose" class="sidebar-close" aria-label="Fechar menu">×</button>
+        <div class="sidebar-content">
+            <h3 class="sidebar-main-title"><span class="sidebar-icon">🕐</span> Horários</h3>
+
+            <div class="sidebar-subsection expandable">
+                <div class="sidebar-subsection-header" onclick="toggleSidebarSubsection(this.parentElement)">
+                    <h4>CF's</h4><span class="sidebar-toggle-indicator">▼</span>
+                </div>
+                <div class="sidebar-subsection-content">
+                    <ul><li><strong>Dragão:</strong> 14h às 15h</li><li><strong>Futebol:</strong> 18h às 19h</li><li><strong>Vampiro:</strong> 21h às 22h</li></ul>
+                </div>
+            </div>
+            <div class="sidebar-subsection expandable">
+                <div class="sidebar-subsection-header" onclick="toggleSidebarSubsection(this.parentElement)">
+                    <h4>Torneio Semanal</h4><span class="sidebar-toggle-indicator">▼</span>
+                </div>
+                <div class="sidebar-subsection-content">
+                    <ul><li>02h30 - 03h30</li><li>09h30 - 10h30</li><li>15h30 - 16h30</li><li>19h30 - 20h30</li><li>22h30 - 23h30</li></ul>
+                </div>
+            </div>
+            <div class="sidebar-subsection expandable">
+                <div class="sidebar-subsection-header" onclick="toggleSidebarSubsection(this.parentElement)">
+                    <h4>Torneio de Elite</h4><span class="sidebar-toggle-indicator">▼</span>
+                </div>
+                <div class="sidebar-subsection-content">
+                    <ul><li><strong>Terça:</strong> Classificação 20h | Mata-Mata 21h30</li><li><strong>Sábado:</strong> Classificação 15h | Mata-Mata 16h30</li></ul>
+                </div>
+            </div>
+            <div class="sidebar-subsection expandable">
+                <div class="sidebar-subsection-header" onclick="toggleSidebarSubsection(this.parentElement)">
+                    <h4>Torneio Equilibrado</h4><span class="sidebar-toggle-indicator">▼</span>
+                </div>
+                <div class="sidebar-subsection-content">
+                    <ul><li><strong>Classificação:</strong> Quarta 21h30 - 22h30</li><li><strong>Chaveamento:</strong> Quinta AO VIVO 21h30</li></ul>
+                </div>
+            </div>
+
+
+            <div class="sidebar-divider"></div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title"><span class="sidebar-icon">🛰️</span> Servidores</h3>
+                <ul class="srv-nav">
+                    <li><a class="to-s12" href="s12.html">▶ SERVIDOR 12</a></li>
+                    <li><a class="to-s1" href="s1.html">▶ SERVIDOR 1</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title"><img src="whatsapp.png" alt="WhatsApp" class="sidebar-icon-img"> Grupos WhatsApp</h3>
+                <ul class="whatsapp-groups">
+                    <li><a href="https://chat.whatsapp.com/COPgSfTiaw38oPIQTyJcCt" target="_blank" rel="noopener"><span class="wa-icon">💲</span> COMÉRCIO</a></li>
+                    <li><a href="https://chat.whatsapp.com/JEnT4kAYDunAKrJqJOcm5O" target="_blank" rel="noopener"><span class="wa-icon">⚔️</span> MISSÕES (Sempre atualizado)</a></li>
+                    <li><a href="https://chat.whatsapp.com/FqemzpNSzElCLOG7JB0PM4" target="_blank" rel="noopener"><span class="wa-icon">🏆</span> TORNEIOS</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <script src="missaoS13.js"></script>
+    <script>
+        function parseBR(d){ var p=(d||"").split("-"); if(p.length!=3) return null; return new Date(+p[2], +p[1]-1, +p[0]); }
+        function ddmm(d){ var p=(d||"").split("-"); return p.length>=2 ? p[0]+"/"+p[1] : (d||""); }
+        function esc(s){ var x=document.createElement("div"); x.textContent=s==null?"":s; return x.innerHTML; }
+        function fmtQtd(q){ var s=(""+(q==null?"":q)).trim(); return /^\d+$/.test(s) ? s.replace(/\B(?=(\d{3})+(?!\d))/g,".") : s; }
+
+        function ehFugura(m){ return /^fugura/i.test((m.titulo||"").trim()); }
+        function cardHTML(m, hoje, extra){
+            var ini=parseBR(m.inicio);
+            var di = ini ? Math.round((hoje-ini)/86400000) : 999;
+            var isNew = di>=0 && di<=3;
+            var tarefas = (m.tarefas||[]).map(function(t){
+                var sig=(t.sigla||"").trim();
+                return '<li><p><strong>(0/'+fmtQtd(t.qtd)+') '+(sig?esc(sig)+' ':'')+'- '+esc(t.nome)+'</strong></p></li>';
+            }).join("");
+            return '<div class="mission '+(extra||"")+'" data-inicio="'+esc(m.inicio)+'">'
+                 + (isNew ? '<span class="new-badge"></span>' : '')
+                 + '<div class="mission-header" onclick="toggleMission(this.parentElement)">'+esc((m.titulo||"").trim())+' ('+ddmm(m.fim)+')</div>'
+                 + '<div class="mission-content"><ul>'+tarefas+'</ul></div>'
+                 + '</div>';
+        }
+
+        function carregarMissoes(){
+            var cont = document.getElementById("missoes");
+            var dados = window.MISSAO || null;
+            if(!dados){ cont.innerHTML='<p class="empty-note">Dados não encontrados (arquivo .js do servidor não carregou).</p>'; return; }
+            var hoje = new Date(); hoje.setHours(0,0,0,0);
+            var miss = (dados.missoes||[])
+                .filter(function(m){ var f=parseBR(m.fim); return !f || f>=hoje; })           // some quando o fim passou
+                .sort(function(a,b){ var da=parseBR(a.inicio), db=parseBR(b.inicio);
+                                     return (db?db.getTime():0)-(da?da.getTime():0); });        // mais recente primeiro
+            if(!miss.length){ cont.innerHTML='<p class="empty-note">Nenhuma surpresa ativa no momento.</p>'; return; }
+            var fug = miss.filter(ehFugura);
+            var norm = miss.filter(function(m){ return !ehFugura(m); });
+            var html = norm.map(function(m){ return cardHTML(m, hoje, ""); }).join("");
+            if(fug.length){
+                html += '<div class="fugura-sep"></div>';
+                html += fug.map(function(m){ return cardHTML(m, hoje, "fugura"); }).join("");
+            }
+            cont.innerHTML = html;
+            ajustarTitulos();
+        }
+
+        function toggleMission(el){ var c=el.querySelector(".mission-content"); if(!c) return; var op=(c.style.display==="none"||c.style.display===""); c.style.display=op?"block":"none"; el.classList.toggle("open",op); }
+        function _norm(s){ return (s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase(); }
+        function searchMission(){
+            var input=document.getElementById("searchInput"); if(!input) return;
+            var f=_norm(input.value).trim();
+            var ms=document.querySelectorAll(".mission");
+            for(var i=0;i<ms.length;i++){
+                var m=ms[i];
+                var match = f==="" || _norm(m.textContent).indexOf(f)>=0;   // titulo + conteudo, sem acento/caixa
+                m.classList.toggle("non-matching", !match);
+            }
+            var sep=document.querySelector(".fugura-sep");
+            if(sep) sep.style.display = f==="" ? "" : "none";
+        }
+        function ajustarTitulos(){
+            var hs=document.querySelectorAll(".mission-header");
+            for(var i=0;i<hs.length;i++){ var h=hs[i]; h.style.whiteSpace="nowrap"; var fs=15; h.style.fontSize=fs+"px";
+                while(h.scrollWidth>h.clientWidth && fs>9){ fs--; h.style.fontSize=fs+"px"; } }
+        }
+
+        var sidebarToggle=document.getElementById("sidebarToggle"),sidebar=document.getElementById("sidebar"),
+            sidebarClose=document.getElementById("sidebarClose"),sidebarOverlay=document.getElementById("sidebarOverlay");
+        function openSidebar(){sidebar.classList.add("is-open");sidebarOverlay.classList.add("is-visible");document.body.style.overflow="hidden";}
+        function closeSidebar(){sidebar.classList.remove("is-open");sidebarOverlay.classList.remove("is-visible");document.body.style.overflow="";}
+        sidebarToggle.addEventListener("click",openSidebar);sidebarClose.addEventListener("click",closeSidebar);sidebarOverlay.addEventListener("click",closeSidebar);
+        function toggleSidebarSubsection(el){
+            var content=el.querySelector(".sidebar-subsection-content"); var indicator=el.querySelector(".sidebar-toggle-indicator");
+            if(!content)return; var exp=content.style.display==="none"||content.style.display==="";
+            if(indicator)indicator.style.transform=exp?"rotate(180deg)":"rotate(0deg)";
+            content.style.display=exp?"block":"none";
+        }
+        document.addEventListener("keydown",function(e){ if(e.key==="Escape"&&sidebar.classList.contains("is-open"))closeSidebar(); });
+        window.addEventListener("resize",ajustarTitulos);
+        document.addEventListener("DOMContentLoaded",carregarMissoes);
+    </script>
+</body>
+</html>
