@@ -1,5 +1,5 @@
 window.MISSAO = {
-  "gerado_em": "2026-05-30T00:18:06",
+  "gerado_em": "2026-05-30T03:10:40",
   "servidor": "13",
   "missoes": [
     {
@@ -158,9 +158,9 @@ window.MISSAO = {
           "qtd": "3"
         },
         {
-          "nome": "NÃO DESCOBERTA",
+          "nome": "PONTOS CF (QUALQUER)",
           "sigla": "",
-          "qtd": "??"
+          "qtd": "2000"
         }
       ]
     }
