@@ -1,34 +1,6 @@
 window.MISSAO = {
-  "gerado_em": "2026-05-30T03:10:40",
   "servidor": "13",
   "missoes": [
-    {
-      "titulo": "Quinta Feira",
-      "inicio": "14-05-2026",
-      "fim": "30-05-2026",
-      "tarefas": [
-        {
-          "nome": "IR TORNEIO 2X2",
-          "sigla": "",
-          "qtd": "10"
-        },
-        {
-          "nome": "BUGOU DIFÍCIL",
-          "sigla": "BD",
-          "qtd": "5"
-        },
-        {
-          "nome": "COVIL DRAGÃO NORMAL",
-          "sigla": "CDN",
-          "qtd": "3"
-        },
-        {
-          "nome": "PONTOS CF (QUALQUER)",
-          "sigla": "",
-          "qtd": "2000"
-        }
-      ]
-    },
     {
       "titulo": "Azul",
       "inicio": "23-05-2026",
@@ -138,29 +110,29 @@ window.MISSAO = {
       ]
     },
     {
-      "titulo": "Final de Semana",
-      "inicio": "30-05-2026",
-      "fim": "31-05-2026",
+      "titulo": "Chegou Junho",
+      "inicio": "01-06-2026",
+      "fim": "16-06-2026",
       "tarefas": [
         {
-          "nome": "IR TORNEIO 2X2",
+          "nome": "DERROTAR NO DANO EM GVG LIVRE",
           "sigla": "",
-          "qtd": "10"
+          "qtd": "15"
         },
         {
-          "nome": "GALINHEIRO DIFÍCIL",
-          "sigla": "PD",
-          "qtd": "3"
-        },
-        {
-          "nome": "COVIL DRAGÃO DIFÍCIL",
-          "sigla": "CDD",
-          "qtd": "3"
-        },
-        {
-          "nome": "PONTOS CF (QUALQUER)",
+          "nome": "IR PVP EM QUALQUER MODO",
           "sigla": "",
-          "qtd": "2000"
+          "qtd": "15"
+        },
+        {
+          "nome": "GALINHEIRO NORMAL",
+          "sigla": "PN",
+          "qtd": "5"
+        },
+        {
+          "nome": "CASTELO SOMBRIO DIFÍCIL",
+          "sigla": "CSD",
+          "qtd": "5"
         }
       ]
     }
