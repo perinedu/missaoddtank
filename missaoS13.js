@@ -157,9 +157,9 @@ window.MISSAO = {
           "qtd": "5"
         },
         {
-          "nome": "NÃO DESCOBERTO",
+          "nome": "PONTOS SUGAR BUGOU",
           "sigla": "",
-          "qtd": "?????"
+          "qtd": "150000"
         }
       ]
     },
