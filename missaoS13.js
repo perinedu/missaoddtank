@@ -120,7 +120,7 @@ window.MISSAO = {
           "qtd": "15"
         },
         {
-          "nome": "IR PVP EM QUALQUER MODO",
+          "nome": "IR PVP 1X1 (MODO LIVRE)",
           "sigla": "",
           "qtd": "15"
         },
@@ -133,6 +133,60 @@ window.MISSAO = {
           "nome": "CASTELO SOMBRIO DIFÍCIL",
           "sigla": "CSD",
           "qtd": "5"
+        }
+      ]
+    },
+    {
+      "titulo": "Quarta Surpresa A",
+      "inicio": "03-06-2026",
+      "fim": "18-06-2026",
+      "tarefas": [
+        {
+          "nome": "GANHAR PVP 1X1 (MODO LIVRE)",
+          "sigla": "",
+          "qtd": "15"
+        },
+        {
+          "nome": "FORMIGUEIRO NORMAL",
+          "sigla": "FN",
+          "qtd": "5"
+        },
+        {
+          "nome": "COVIL DRAGÃO NORMAL",
+          "sigla": "CDN",
+          "qtd": "5"
+        },
+        {
+          "nome": "NÃO DESCOBERTO",
+          "sigla": "",
+          "qtd": "?????"
+        }
+      ]
+    },
+    {
+      "titulo": "Quarta Surpresa B",
+      "inicio": "03-06-2026",
+      "fim": "18-06-2026",
+      "tarefas": [
+        {
+          "nome": "GANHAR COMBATE COM 1 DE VIDA",
+          "sigla": "",
+          "qtd": "10"
+        },
+        {
+          "nome": "DERROTAR NO DANO GVG EQUILIBRADO",
+          "sigla": "",
+          "qtd": "15"
+        },
+        {
+          "nome": "TRIBO PIATAN DIFÍCIL",
+          "sigla": "TPD",
+          "qtd": "5"
+        },
+        {
+          "nome": "NÃO DESCOBERTO",
+          "sigla": "",
+          "qtd": "?????"
         }
       ]
     }
