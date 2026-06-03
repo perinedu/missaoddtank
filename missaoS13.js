@@ -184,9 +184,9 @@ window.MISSAO = {
           "qtd": "5"
         },
         {
-          "nome": "NÃO DESCOBERTO",
+          "nome": "PONTOS CF (QUALQUER)",
           "sigla": "",
-          "qtd": "?????"
+          "qtd": "5000"
         }
       ]
     }
