@@ -189,6 +189,33 @@ window.MISSAO = {
           "qtd": "5000"
         }
       ]
+    },
+    {
+      "titulo": "Quinta",
+      "inicio": "04-06-2026",
+      "fim": "06-06-2026",
+      "tarefas": [
+        {
+          "nome": "IR TORNEIO 2X2",
+          "sigla": "",
+          "qtd": "10"
+        },
+        {
+          "nome": "GALINHEIRO DIFÍCIL",
+          "sigla": "PD",
+          "qtd": "3"
+        },
+        {
+          "nome": "COVIL DRAGÃO DIFÍCIL",
+          "sigla": "CDD",
+          "qtd": "3"
+        },
+        {
+          "nome": "PONTOS CF (QUALQUER)",
+          "sigla": "",
+          "qtd": "2000"
+        }
+      ]
     }
   ]
 };
