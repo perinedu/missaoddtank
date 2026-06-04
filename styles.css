@@ -1787,6 +1787,48 @@ body.tema-s1 .mission.fugura .mission-content{ background:rgba(18,20,24,.86); }
 
 /* o NEW usa a imagem novo.png via .new-badge (definido no topo do styles.css) */
 
+/* "Você está no SXX" — barra saindo do sidebar (desktop) / texto no topo (mobile) */
+.srv-here{
+  position:fixed; z-index:999997;
+  display:flex; align-items:center; gap:8px;
+  font-family:'Oxanium',system-ui,sans-serif; font-weight:800;
+  letter-spacing:.6px; text-transform:uppercase; white-space:nowrap; line-height:1;
+}
+.srv-here b{ font-weight:900; }
+
+/* DESKTOP: colada na borda direita da sidebar, mesma cor da sidebar */
+@media (min-width:1025px){
+  .srv-here{
+    top:22px; left:320px; right:auto;
+    padding:12px 20px 12px 18px;
+    font-size:15px; color:#eafff5;
+    background:linear-gradient(180deg,rgba(10,16,28,.98),rgba(18,32,58,.98));
+    border:2px solid rgba(var(--ac),.45); border-left:none;
+    border-radius:0 14px 14px 0;
+    box-shadow:6px 4px 20px rgba(0,0,0,.45);
+    text-shadow:0 0 10px rgba(var(--ac),.55);
+  }
+  .srv-here b{ color:var(--srv); }
+  body.tema-s12 .srv-here{ background:linear-gradient(180deg,rgba(8,24,16,.98),rgba(10,42,26,.98)); }
+  body.tema-s1  .srv-here{ background:linear-gradient(180deg,rgba(16,18,22,.98),rgba(32,37,44,.98)); }
+}
+
+/* MOBILE: texto destacado no canto superior direito, com fundo p/ legibilidade */
+@media (max-width:1024px){
+  .srv-here{
+    top:30px; right:16px; left:auto;
+    padding:9px 14px; border-radius:12px;
+    background:linear-gradient(180deg,rgba(10,16,28,.92),rgba(18,32,58,.92));
+    border:1.5px solid rgba(var(--ac),.5);
+    box-shadow:0 4px 16px rgba(0,0,0,.5);
+    font-size:14px; color:#cfe9ff;
+    text-shadow:0 0 10px rgba(var(--ac),.7), 0 1px 3px rgba(0,0,0,.65);
+  }
+  .srv-here b{ color:#fff; }
+  body.tema-s12 .srv-here{ color:#bdf5d6; background:linear-gradient(180deg,rgba(8,24,16,.92),rgba(10,42,26,.92)); }
+  body.tema-s1  .srv-here{ color:#eef2f6; background:linear-gradient(180deg,rgba(16,18,22,.92),rgba(32,37,44,.92)); }
+}
+
 /* estado vazio (whatsapp do s12/s1) */
 .empty-note{ font-size:13px; color:rgba(200,220,240,.7); font-style:italic; padding:8px 10px; }
 
