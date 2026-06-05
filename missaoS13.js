@@ -223,9 +223,9 @@ window.MISSAO = {
       "fim": "20-06-2026",
       "tarefas": [
         {
-          "nome": "SEM INFORMAÇÃO",
+          "nome": "PONTOS CF (QUALQUER)",
           "sigla": "",
-          "qtd": "????"
+          "qtd": "2000"
         },
         {
           "nome": "IR GVG EM MODO EQUILIBRADO",
