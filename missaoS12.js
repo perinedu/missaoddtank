@@ -7,9 +7,9 @@ window.MISSAO = {
       "fim": "20-06-2026",
       "tarefas": [
         {
-          "nome": "NÃO DESCOBERTA",
+          "nome": "PONTOS CF DRAGÃO",
           "sigla": "",
-          "qtd": "??"
+          "qtd": "1000"
         },
         {
           "nome": "BUGOU FÁCIL",
