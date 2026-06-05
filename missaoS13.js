@@ -216,6 +216,33 @@ window.MISSAO = {
           "qtd": "2000"
         }
       ]
+    },
+    {
+      "titulo": "Sextou",
+      "inicio": "05-06-2026",
+      "fim": "20-06-2026",
+      "tarefas": [
+        {
+          "nome": "SEM INFORMAÇÃO",
+          "sigla": "",
+          "qtd": "????"
+        },
+        {
+          "nome": "IR GVG EM MODO EQUILIBRADO",
+          "sigla": "",
+          "qtd": "25"
+        },
+        {
+          "nome": "BUGOU NORMAL",
+          "sigla": "BN",
+          "qtd": "3"
+        },
+        {
+          "nome": "TRIBO PIATAN AVANÇADO",
+          "sigla": "TPA",
+          "qtd": "1"
+        }
+      ]
     }
   ]
 };
