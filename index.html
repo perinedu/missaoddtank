@@ -81,6 +81,12 @@
         .promo-float{ animation:none; opacity:1; transform:none; }
         .promo-float::before,.promo-float::after{ animation:none; }
       }
+
+      /* espaço extra no fim só pro popup não cobrir as últimas missões */
+      .group-box{ padding-bottom: clamp(300px, 34vw, 470px); }
+      @media (max-width:768px){
+        .group-box{ padding-bottom: min(70vw, 370px); }
+      }
     </style>
 </head>
 <body class="tema-s13">
