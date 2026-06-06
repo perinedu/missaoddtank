@@ -1,248 +1,275 @@
 window.MISSAO = {
-  "servidor": "13",
   "missoes": [
     {
-      "titulo": "Azul",
-      "inicio": "23-05-2026",
       "fim": "07-06-2026",
+      "inicio": "23-05-2026",
       "tarefas": [
         {
           "nome": "GANHAR COMBATE COM 1 DE VIDA",
-          "sigla": "",
-          "qtd": "5"
+          "qtd": "5",
+          "sigla": ""
         },
         {
           "nome": "COVIL DRAGÃO DIFÍCIL",
-          "sigla": "CDD",
-          "qtd": "3"
+          "qtd": "3",
+          "sigla": "CDD"
         },
         {
           "nome": "FORMIGUEIRO NORMAL",
-          "sigla": "FN",
-          "qtd": "5"
+          "qtd": "5",
+          "sigla": "FN"
         },
         {
           "nome": "DERROTAR NO DANO NO TORNEIO GVG",
-          "sigla": "",
-          "qtd": "25"
+          "qtd": "25",
+          "sigla": ""
         }
-      ]
+      ],
+      "titulo": "Azul"
     },
     {
-      "titulo": "Verde",
-      "inicio": "23-05-2026",
       "fim": "07-06-2026",
+      "inicio": "23-05-2026",
       "tarefas": [
         {
           "nome": "IR BATALHA DE CASAL",
-          "sigla": "",
-          "qtd": "15"
+          "qtd": "15",
+          "sigla": ""
         },
         {
           "nome": "DERROTAR NO DANO EM PVP LIVRE",
-          "sigla": "",
-          "qtd": "15"
+          "qtd": "15",
+          "sigla": ""
         },
         {
           "nome": "CASTELO SOMBRIO AVANÇADO",
-          "sigla": "CSA",
-          "qtd": "2"
+          "qtd": "2",
+          "sigla": "CSA"
         },
         {
           "nome": "TRIBO PIATAN NORMAL",
-          "sigla": "TPN",
-          "qtd": "3"
+          "qtd": "3",
+          "sigla": "TPN"
         }
-      ]
+      ],
+      "titulo": "Verde"
     },
     {
-      "titulo": "Terça",
-      "inicio": "26-05-2026",
       "fim": "13-06-2026",
+      "inicio": "26-05-2026",
       "tarefas": [
         {
           "nome": "IR BATALHA DE CASAL",
-          "sigla": "",
-          "qtd": "15"
+          "qtd": "15",
+          "sigla": ""
         },
         {
           "nome": "CASTELO SOMBRIO NORMAL",
-          "sigla": "CSN",
-          "qtd": "2"
+          "qtd": "2",
+          "sigla": "CSN"
         },
         {
           "nome": "TRIBO PIATAN DIFÍCIL",
-          "sigla": "TPD",
-          "qtd": "3"
+          "qtd": "3",
+          "sigla": "TPD"
         },
         {
           "nome": "PONTOS SUGAR BUGOU",
-          "sigla": "",
-          "qtd": "50000"
+          "qtd": "50000",
+          "sigla": ""
         }
-      ]
+      ],
+      "titulo": "Terça"
     },
     {
-      "titulo": "Quinta",
-      "inicio": "28-05-2026",
       "fim": "12-06-2026",
+      "inicio": "28-05-2026",
       "tarefas": [
         {
           "nome": "FICAR NO SPA",
-          "sigla": "",
-          "qtd": "60"
+          "qtd": "60",
+          "sigla": ""
         },
         {
           "nome": "GANHAR COMBATE COM 1 DE VIDA",
-          "sigla": "",
-          "qtd": "10"
+          "qtd": "10",
+          "sigla": ""
         },
         {
           "nome": "OLIMPÍADAS BOOM AVANÇADO",
-          "sigla": "OBA",
-          "qtd": "1"
+          "qtd": "1",
+          "sigla": "OBA"
         },
         {
           "nome": "CASTELO SOMBRIO DIFÍCIL",
-          "sigla": "CSD",
-          "qtd": "3"
+          "qtd": "3",
+          "sigla": "CSD"
         }
-      ]
+      ],
+      "titulo": "Quinta"
     },
     {
-      "titulo": "Chegou Junho",
-      "inicio": "01-06-2026",
       "fim": "16-06-2026",
+      "inicio": "01-06-2026",
       "tarefas": [
         {
           "nome": "DERROTAR NO DANO EM GVG LIVRE",
-          "sigla": "",
-          "qtd": "15"
+          "qtd": "15",
+          "sigla": ""
         },
         {
           "nome": "IR PVP 1X1 (MODO LIVRE)",
-          "sigla": "",
-          "qtd": "15"
+          "qtd": "15",
+          "sigla": ""
         },
         {
           "nome": "GALINHEIRO NORMAL",
-          "sigla": "PN",
-          "qtd": "5"
+          "qtd": "5",
+          "sigla": "PN"
         },
         {
           "nome": "CASTELO SOMBRIO DIFÍCIL",
-          "sigla": "CSD",
-          "qtd": "5"
+          "qtd": "5",
+          "sigla": "CSD"
         }
-      ]
+      ],
+      "titulo": "Chegou Junho"
     },
     {
-      "titulo": "Quarta Surpresa A",
-      "inicio": "03-06-2026",
       "fim": "18-06-2026",
+      "inicio": "03-06-2026",
       "tarefas": [
         {
           "nome": "GANHAR PVP 1X1 (MODO LIVRE)",
-          "sigla": "",
-          "qtd": "15"
+          "qtd": "15",
+          "sigla": ""
         },
         {
           "nome": "FORMIGUEIRO NORMAL",
-          "sigla": "FN",
-          "qtd": "5"
+          "qtd": "5",
+          "sigla": "FN"
         },
         {
           "nome": "COVIL DRAGÃO NORMAL",
-          "sigla": "CDN",
-          "qtd": "5"
+          "qtd": "5",
+          "sigla": "CDN"
         },
         {
           "nome": "PONTOS SUGAR BUGOU",
-          "sigla": "",
-          "qtd": "150000"
+          "qtd": "150000",
+          "sigla": ""
         }
-      ]
+      ],
+      "titulo": "Quarta Surpresa A"
     },
     {
-      "titulo": "Quarta Surpresa B",
-      "inicio": "03-06-2026",
       "fim": "18-06-2026",
+      "inicio": "03-06-2026",
       "tarefas": [
         {
           "nome": "GANHAR COMBATE COM 1 DE VIDA",
-          "sigla": "",
-          "qtd": "10"
+          "qtd": "10",
+          "sigla": ""
         },
         {
           "nome": "DERROTAR NO DANO GVG EQUILIBRADO",
-          "sigla": "",
-          "qtd": "15"
+          "qtd": "15",
+          "sigla": ""
         },
         {
           "nome": "TRIBO PIATAN DIFÍCIL",
-          "sigla": "TPD",
-          "qtd": "5"
+          "qtd": "5",
+          "sigla": "TPD"
         },
         {
           "nome": "PONTOS CF (QUALQUER)",
-          "sigla": "",
-          "qtd": "5000"
+          "qtd": "5000",
+          "sigla": ""
         }
-      ]
+      ],
+      "titulo": "Quarta Surpresa B"
     },
     {
-      "titulo": "Quinta",
-      "inicio": "04-06-2026",
       "fim": "06-06-2026",
+      "inicio": "04-06-2026",
       "tarefas": [
         {
           "nome": "IR TORNEIO 2X2",
-          "sigla": "",
-          "qtd": "10"
+          "qtd": "10",
+          "sigla": ""
         },
         {
           "nome": "GALINHEIRO DIFÍCIL",
-          "sigla": "PD",
-          "qtd": "3"
+          "qtd": "3",
+          "sigla": "PD"
         },
         {
           "nome": "COVIL DRAGÃO DIFÍCIL",
-          "sigla": "CDD",
-          "qtd": "3"
+          "qtd": "3",
+          "sigla": "CDD"
         },
         {
           "nome": "PONTOS CF (QUALQUER)",
-          "sigla": "",
-          "qtd": "2000"
+          "qtd": "2000",
+          "sigla": ""
         }
-      ]
+      ],
+      "titulo": "Quinta"
     },
     {
-      "titulo": "Sextou",
-      "inicio": "05-06-2026",
       "fim": "20-06-2026",
+      "inicio": "05-06-2026",
       "tarefas": [
         {
           "nome": "PONTOS CF (QUALQUER)",
-          "sigla": "",
-          "qtd": "2000"
+          "qtd": "2000",
+          "sigla": ""
         },
         {
           "nome": "IR GVG EM MODO EQUILIBRADO",
-          "sigla": "",
-          "qtd": "25"
+          "qtd": "25",
+          "sigla": ""
         },
         {
           "nome": "BUGOU NORMAL",
-          "sigla": "BN",
-          "qtd": "3"
+          "qtd": "3",
+          "sigla": "BN"
         },
         {
           "nome": "TRIBO PIATAN AVANÇADO",
-          "sigla": "TPA",
-          "qtd": "1"
+          "qtd": "1",
+          "sigla": "TPA"
         }
-      ]
+      ],
+      "titulo": "Sextou"
+    },
+    {
+      "fim": "21-06-2026",
+      "inicio": "06-06-2026",
+      "tarefas": [
+        {
+          "nome": "GANHAR PVP 1X1 (MODO LIVRE)",
+          "qtd": "15",
+          "sigla": ""
+        },
+        {
+          "nome": "CASTELO SOMBRIO NORMAL",
+          "qtd": "3",
+          "sigla": "CSN"
+        },
+        {
+          "nome": "BUGOU DIFÍCIL",
+          "qtd": "3",
+          "sigla": "BD"
+        },
+        {
+          "nome": "????????",
+          "qtd": "???",
+          "sigla": ""
+        }
+      ],
+      "titulo": "Final de Semana"
     }
-  ]
+  ],
+  "servidor": "13"
 };
