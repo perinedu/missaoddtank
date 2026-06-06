@@ -263,8 +263,8 @@ window.MISSAO = {
           "sigla": "BD"
         },
         {
-          "nome": "????????",
-          "qtd": "???",
+          "nome": "PONTOS SUGAR BUGOU",
+          "qtd": "100000",
           "sigla": ""
         }
       ],
