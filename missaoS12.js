@@ -5,7 +5,7 @@ window.MISSAO = {
       "inicio": "14-08-2025",
       "tarefas": [
         {
-          "nome": "",
+          "nome": "GANHAR PARTIDAS EM MODO 3X3",
           "qtd": "7",
           "sigla": ""
         },
@@ -20,7 +20,7 @@ window.MISSAO = {
           "sigla": ""
         },
         {
-          "nome": "",
+          "nome": "MATAR BOSS 2º STAGE BUGOU (REMOVER PASSIVA DE ATK DO PET)",
           "qtd": "5",
           "sigla": ""
         }
@@ -47,7 +47,7 @@ window.MISSAO = {
           "sigla": ""
         },
         {
-          "nome": "",
+          "nome": "MATAR BOSS DO FORMIGUEIRO (REMOVER PASSIVA DO PET)",
           "qtd": "5",
           "sigla": ""
         }
@@ -91,7 +91,7 @@ window.MISSAO = {
           "sigla": ""
         },
         {
-          "nome": "",
+          "nome": "GANHAR PARTIDA 4X4",
           "qtd": "7",
           "sigla": ""
         },
@@ -155,7 +155,7 @@ window.MISSAO = {
           "sigla": ""
         },
         {
-          "nome": "",
+          "nome": "MATAR SEGUNDO MINOTAURO (CSD-CSA-CSE)",
           "qtd": "5",
           "sigla": ""
         }
@@ -221,7 +221,7 @@ window.MISSAO = {
       "inicio": "14-08-2025",
       "tarefas": [
         {
-          "nome": "",
+          "nome": "MATAR TEODORO (COVIL STAGE 3) (REMOVER PASSIVA DE ATK DO PET)",
           "qtd": "5",
           "sigla": ""
         },
@@ -253,7 +253,7 @@ window.MISSAO = {
           "sigla": "FF"
         },
         {
-          "nome": "",
+          "nome": "GANHAR PARTIDAS EM MODO 3X3",
           "qtd": "7",
           "sigla": ""
         },
@@ -290,7 +290,7 @@ window.MISSAO = {
           "sigla": ""
         },
         {
-          "nome": "",
+          "nome": "COMPOSIÇÃO SORTE (AMARELA) NÍVEL 9",
           "qtd": "1",
           "sigla": ""
         }
@@ -302,7 +302,7 @@ window.MISSAO = {
       "inicio": "14-08-2025",
       "tarefas": [
         {
-          "nome": "",
+          "nome": "COMPOSIÇÃO AZUL NÍVEL 4",
           "qtd": "3",
           "sigla": ""
         },
