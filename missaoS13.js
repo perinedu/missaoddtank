@@ -215,6 +215,33 @@ window.MISSAO = {
         }
       ],
       "titulo": "Surpresa"
+    },
+    {
+      "fim": "26-06-2026",
+      "inicio": "11-06-2026",
+      "tarefas": [
+        {
+          "nome": "GANHAR PVP 1X1 (MODO LIVRE)",
+          "qtd": "15",
+          "sigla": ""
+        },
+        {
+          "nome": "CASTELO SOMBRIO AVANÇADO",
+          "qtd": "1",
+          "sigla": "CSA"
+        },
+        {
+          "nome": "BUGOU NORMAL",
+          "qtd": "5",
+          "sigla": "BN"
+        },
+        {
+          "nome": "???????????",
+          "qtd": "??",
+          "sigla": ""
+        }
+      ],
+      "titulo": "Surpresa de Quinta"
     }
   ],
   "servidor": "13"
