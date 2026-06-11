@@ -236,8 +236,8 @@ window.MISSAO = {
           "sigla": "BN"
         },
         {
-          "nome": "???????????",
-          "qtd": "??",
+          "nome": "PONTOS CF VAMPIRO",
+          "qtd": "3000",
           "sigla": ""
         }
       ],
