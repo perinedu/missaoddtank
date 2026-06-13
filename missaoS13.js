@@ -28,33 +28,6 @@ window.MISSAO = {
       "titulo": "Terça"
     },
     {
-      "fim": "12-06-2026",
-      "inicio": "28-05-2026",
-      "tarefas": [
-        {
-          "nome": "FICAR NO SPA",
-          "qtd": "60",
-          "sigla": ""
-        },
-        {
-          "nome": "GANHAR COMBATE COM 1 DE VIDA",
-          "qtd": "10",
-          "sigla": ""
-        },
-        {
-          "nome": "OLIMPÍADAS BOOM AVANÇADO",
-          "qtd": "1",
-          "sigla": "OBA"
-        },
-        {
-          "nome": "CASTELO SOMBRIO DIFÍCIL",
-          "qtd": "3",
-          "sigla": "CSD"
-        }
-      ],
-      "titulo": "Quinta"
-    },
-    {
       "fim": "16-06-2026",
       "inicio": "01-06-2026",
       "tarefas": [
@@ -242,6 +215,33 @@ window.MISSAO = {
         }
       ],
       "titulo": "Surpresa de Quinta"
+    },
+    {
+      "fim": "14-06-2026",
+      "inicio": "13-06-2026",
+      "tarefas": [
+        {
+          "nome": "FORMIGUEIRO NORMAL",
+          "qtd": "5",
+          "sigla": "FN"
+        },
+        {
+          "nome": "?????????",
+          "qtd": "????????",
+          "sigla": ""
+        },
+        {
+          "nome": "IR BATALHA DE CASAL",
+          "qtd": "15",
+          "sigla": ""
+        },
+        {
+          "nome": "COVIL DRAGÃO NORMAL",
+          "qtd": "5",
+          "sigla": "CDN"
+        }
+      ],
+      "titulo": "Final de Semana"
     }
   ],
   "servidor": "13"
