@@ -1,6 +1,60 @@
 window.MISSAO = {
   "missoes": [
     {
+      "fim": "07-06-2026",
+      "inicio": "23-05-2026",
+      "tarefas": [
+        {
+          "nome": "GANHAR COMBATE COM 1 DE VIDA",
+          "qtd": "5",
+          "sigla": ""
+        },
+        {
+          "nome": "COVIL DRAGÃO DIFÍCIL",
+          "qtd": "3",
+          "sigla": "CDD"
+        },
+        {
+          "nome": "FORMIGUEIRO NORMAL",
+          "qtd": "5",
+          "sigla": "FN"
+        },
+        {
+          "nome": "DERROTAR NO DANO NO TORNEIO GVG",
+          "qtd": "25",
+          "sigla": ""
+        }
+      ],
+      "titulo": "Azul"
+    },
+    {
+      "fim": "07-06-2026",
+      "inicio": "23-05-2026",
+      "tarefas": [
+        {
+          "nome": "IR BATALHA DE CASAL",
+          "qtd": "15",
+          "sigla": ""
+        },
+        {
+          "nome": "DERROTAR NO DANO EM PVP LIVRE",
+          "qtd": "15",
+          "sigla": ""
+        },
+        {
+          "nome": "CASTELO SOMBRIO AVANÇADO",
+          "qtd": "2",
+          "sigla": "CSA"
+        },
+        {
+          "nome": "TRIBO PIATAN NORMAL",
+          "qtd": "3",
+          "sigla": "TPN"
+        }
+      ],
+      "titulo": "Verde"
+    },
+    {
       "fim": "13-06-2026",
       "inicio": "26-05-2026",
       "tarefas": [
@@ -26,6 +80,33 @@ window.MISSAO = {
         }
       ],
       "titulo": "Terça"
+    },
+    {
+      "fim": "12-06-2026",
+      "inicio": "28-05-2026",
+      "tarefas": [
+        {
+          "nome": "FICAR NO SPA",
+          "qtd": "60",
+          "sigla": ""
+        },
+        {
+          "nome": "GANHAR COMBATE COM 1 DE VIDA",
+          "qtd": "10",
+          "sigla": ""
+        },
+        {
+          "nome": "OLIMPÍADAS BOOM AVANÇADO",
+          "qtd": "1",
+          "sigla": "OBA"
+        },
+        {
+          "nome": "CASTELO SOMBRIO DIFÍCIL",
+          "qtd": "3",
+          "sigla": "CSD"
+        }
+      ],
+      "titulo": "Quinta"
     },
     {
       "fim": "16-06-2026",
@@ -109,6 +190,33 @@ window.MISSAO = {
       "titulo": "Quarta Surpresa B"
     },
     {
+      "fim": "06-06-2026",
+      "inicio": "04-06-2026",
+      "tarefas": [
+        {
+          "nome": "IR TORNEIO 2X2",
+          "qtd": "10",
+          "sigla": ""
+        },
+        {
+          "nome": "GALINHEIRO DIFÍCIL",
+          "qtd": "3",
+          "sigla": "PD"
+        },
+        {
+          "nome": "COVIL DRAGÃO DIFÍCIL",
+          "qtd": "3",
+          "sigla": "CDD"
+        },
+        {
+          "nome": "PONTOS CF (QUALQUER)",
+          "qtd": "2000",
+          "sigla": ""
+        }
+      ],
+      "titulo": "Quinta"
+    },
+    {
       "fim": "20-06-2026",
       "inicio": "05-06-2026",
       "tarefas": [
@@ -158,87 +266,6 @@ window.MISSAO = {
           "nome": "PONTOS SUGAR BUGOU",
           "qtd": "100000",
           "sigla": ""
-        }
-      ],
-      "titulo": "Final de Semana"
-    },
-    {
-      "fim": "24-06-2026",
-      "inicio": "09-06-2026",
-      "tarefas": [
-        {
-          "nome": "GANHAR PVP EQUILIBRADO",
-          "qtd": "10",
-          "sigla": ""
-        },
-        {
-          "nome": "BUGOU NORMAL",
-          "qtd": "3",
-          "sigla": "BN"
-        },
-        {
-          "nome": "GANHAR COMBATE COM 1 DE VIDA",
-          "qtd": "10",
-          "sigla": ""
-        },
-        {
-          "nome": "CASTELO SOMBRIO DIFÍCIL",
-          "qtd": "3",
-          "sigla": "CSD"
-        }
-      ],
-      "titulo": "Surpresa"
-    },
-    {
-      "fim": "26-06-2026",
-      "inicio": "11-06-2026",
-      "tarefas": [
-        {
-          "nome": "GANHAR PVP 1X1 (MODO LIVRE)",
-          "qtd": "15",
-          "sigla": ""
-        },
-        {
-          "nome": "CASTELO SOMBRIO AVANÇADO",
-          "qtd": "1",
-          "sigla": "CSA"
-        },
-        {
-          "nome": "BUGOU NORMAL",
-          "qtd": "5",
-          "sigla": "BN"
-        },
-        {
-          "nome": "PONTOS CF VAMPIRO",
-          "qtd": "3000",
-          "sigla": ""
-        }
-      ],
-      "titulo": "Surpresa de Quinta"
-    },
-    {
-      "fim": "14-06-2026",
-      "inicio": "13-06-2026",
-      "tarefas": [
-        {
-          "nome": "FORMIGUEIRO NORMAL",
-          "qtd": "5",
-          "sigla": "FN"
-        },
-        {
-          "nome": "?????????",
-          "qtd": "????????",
-          "sigla": ""
-        },
-        {
-          "nome": "IR BATALHA DE CASAL",
-          "qtd": "15",
-          "sigla": ""
-        },
-        {
-          "nome": "COVIL DRAGÃO NORMAL",
-          "qtd": "5",
-          "sigla": "CDN"
         }
       ],
       "titulo": "Final de Semana"
